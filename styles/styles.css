@@ -27,15 +27,18 @@ a {
   transition: all 0.3s ease;
 }
 
-.highlight {
-  color: #00A9CE;
-  font-weight: 400;
+html {
+  scroll-behavior: smooth;
+}
+
+:focus-visible {
+  outline: 2px solid #009FE3;
+  outline-offset: 3px;
 }
 
 /* ========================================
    BUTTONS
    ======================================== */
-
 .btn {
   padding: 10px 30px;
   border: none;
@@ -50,13 +53,11 @@ a {
 .btn-primary {
   background-color: #009FE3;
   color: #ffffff;
-  border: 2px solid #009FE3;
+  border: 2px solid #c0c0c0;
   padding: 12px 30px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  border-color: #c0c0c0;
-
 }
 
 .btn-primary:hover {
@@ -65,32 +66,18 @@ a {
   box-shadow: 0 4px 12px rgba(0, 169, 206, 0.4);
 }
 
-.btn-outline {
-  background-color: transparent;
-  color: #ffffff;
-  border: 2px solid #ffffff;
-  padding: 10px 28px;
-}
-
-.btn-outline:hover {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-/* Phone Button Styles */
 .btn-phone {
   background-color: #009FE3;
   color: #ffffff;
-  border: 2px solid #009FE3;
+  border: 2px solid #c0c0c0;
   padding: 12px 30px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-   border-color: #c0c0c0;
 }
 
 .btn-phone:hover {
-   background-color: rgb(163, 162, 162);
+  background-color: rgb(163, 162, 162);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 169, 206, 0.4);
@@ -98,6 +85,61 @@ a {
 
 .btn-phone i {
   font-size: 16px;
+}
+
+/* ========================================
+   CALL BANNER
+   ======================================== */
+.call-banner {
+  background: linear-gradient(135deg, #939696 10%, #009FE3 100%);
+  color: #ffffff;
+  padding: 8px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+.call-banner .call-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 13px;
+  font-weight: 400;
+  margin-right: 1rem;
+}
+
+.call-banner .call-left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.call-banner .call-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.call-banner .call-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.call-banner .call-item i {
+  font-size: 13px;
+}
+
+.call-banner .call-item a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.call-banner .call-item a:hover {
+  text-decoration: underline;
 }
 
 /* ========================================
@@ -123,7 +165,7 @@ a {
 }
 
 /* ========================================
-   LOGO STYLES
+   LOGO
    ======================================== */
 .logo {
   display: flex;
@@ -137,30 +179,9 @@ a {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  width: 300px; 
-  margin-right: 250px; 
+  width: 300px;
+  margin-right: 0;
   margin-top: 10px;
-}
-
-.logo-main {
-  font-size: 28px;
-  color: #666666;
-  font-weight: 300;
-  letter-spacing: 1px;
-  line-height: 1;
-}
-
-.logo-main strong {
-  font-weight: 700;
-  color: #666666;
-}
-
-.logo-sub {
-  font-size: 10px;
-  color: #009FE3;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 400;
 }
 
 /* ========================================
@@ -203,36 +224,7 @@ a {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-left: -5rem;
-}
-
-/* Header Phone Number Styles */
-.header-phone {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background-color: #009FE3;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-
-.header-phone i {
-  color: #ffffff;
-  font-size: 14px;
-}
-
-.header-phone a {
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-
-.header-phone:hover {
-  background-color: #0088A8;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 169, 206, 0.4);
+  margin-left: auto;
 }
 
 /* ========================================
@@ -254,13 +246,13 @@ a {
   padding: 0;
 }
 
-.nav-menu>li {
+.nav-menu > li {
   position: relative;
   list-style: none;
   list-style-type: none;
 }
 
-.nav-menu>li>a {
+.nav-menu > li > a {
   display: block;
   padding: 10px 13px;
   font-size: 12px;
@@ -272,14 +264,13 @@ a {
   transition: all 0.3s ease;
 }
 
-.nav-menu>li>a:hover,
-.nav-menu>li>a.active {
+.nav-menu > li > a:hover,
+.nav-menu > li > a.active {
   background-color: #009FE3;
   color: #ffffff;
 }
 
-/* Dropdown Arrow Indicator */
-.nav-menu li.has-submenu>a::after {
+.nav-menu li.has-submenu > a::after {
   content: '\25BC';
   font-size: 8px;
   margin-left: 6px;
@@ -287,11 +278,10 @@ a {
   display: inline-block;
 }
 
-.nav-menu li.has-submenu:hover>a::after {
+.nav-menu li.has-submenu:hover > a::after {
   transform: rotate(180deg);
 }
 
-/* Submenu/Dropdown Styles */
 .nav-menu .submenu {
   position: absolute;
   top: 100%;
@@ -312,7 +302,7 @@ a {
   list-style-type: none;
 }
 
-.nav-menu li:hover>.submenu {
+.nav-menu li:hover > .submenu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -339,8 +329,7 @@ a {
   padding-left: 25px;
 }
 
-/* Nested Submenu (Third Level) */
-.nav-menu .submenu .has-submenu>a::after {
+.nav-menu .submenu .has-submenu > a::after {
   content: '\25B6';
   font-size: 8px;
   float: right;
@@ -355,126 +344,14 @@ a {
   margin-left: 5px;
 }
 
-/* Hover effect for nested submenus */
-.nav-menu .submenu li:hover>.submenu {
+.nav-menu .submenu li:hover > .submenu {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
 }
 
-/* ========================================
-   HEADER SOCIAL ICONS
-   ======================================== */
-.header-social {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.header-social::before {
-  content: '';
-  width: 1px;
-  height: 30px;
-  background: #009FE3;
-  margin-right: 8px;
-}
-
-.header-social a {
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #009FE3;
-  border-radius: 50%;
-  color: #ffffff;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-.header-social a:hover {
-  background-color: #009FE3;
-  transform: translateY(-3px);
-}
-
-/* ========================================
-   HAMBURGER MENU
-   ======================================== */
 .hamburger-menu {
   display: none;
-}
-
-/* ========================================
-   CALL BANNER
-   ======================================== */
-.call-banner {
-  background: linear-gradient(135deg, #939696 10%,  #009FE3 100%);
-  color: #ffffff;
-  padding: 8px 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1001;
-}
-
-.call-banner .call-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 13px;
-  font-weight: 400;
-  margin-right: 1rem;
-}
-
-.call-banner .call-left {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.call-banner .call-left a {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  color: #ffffff;
-  font-size: 13px;
-  transition: all 0.3s ease;
-}
-
-.call-banner .call-left a:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-.call-banner .call-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.call-banner .call-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.call-banner .call-item i {
-  font-size: 13px;
-}
-
-.call-banner .call-item a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.call-banner .call-item a:hover {
-  text-decoration: underline;
 }
 
 /* ========================================
@@ -485,8 +362,8 @@ a {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(136, 136, 141, 0.3), rgb(195, 195, 195,.4)),
-              url("../images/enter.Jpeg") center/cover no-repeat;
+  background: linear-gradient(rgba(136, 136, 141, 0.3), rgb(195, 195, 195, 0.4)),
+    url("../images/enter.Jpeg") center/cover no-repeat;
   padding-top: 100px;
 }
 
@@ -495,10 +372,9 @@ a {
   height: 60vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(136, 136, 141, 0.5), rgb(195, 195, 195,.4)),
-              url("../images/orthodontics.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(136, 136, 141, 0.5), rgb(195, 195, 195, 0.4)),
+    url("../images/orthodontics.jpg") center/cover no-repeat;
   padding-top: 100px;
-  
 }
 
 .hero-content {
@@ -513,20 +389,18 @@ a {
   margin-bottom: 10px;
   line-height: 1.2;
   color: #ffffff;
-   text-shadow: 2px 2px #3b3939;
-    text-align: center;
+  text-shadow: 2px 2px #3b3939;
+  text-align: center;
 }
 
 .hero-content .tagline {
   font-size: 17px;
   font-weight: 500;
   text-align: center;
- 
   letter-spacing: 1px;
   margin-bottom: 20px;
   color: #ffffff;
   text-shadow: 2px 2px #4e4d4d;
-  
 }
 
 .hero-buttons {
@@ -534,63 +408,65 @@ a {
   gap: 20px;
   flex-wrap: wrap;
   border-color: #e8e8e8;
- margin-bottom: 100px;
- margin-left: 30px;
-
-  }
+  margin-bottom: 100px;
+  margin-left: 30px;
+}
 
 .hero-content .btn {
   font-size: 14px;
   padding: 8px 25px;
- 
-  
 }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-  text-decoration: none;
-  display: block;
-  z-index: 1;
+/* ========================================
+   WELCOME SECTION
+   ======================================== */
+.welcome-section {
+  padding: 50px 0;
+  background-color: #f5f5f5;
 }
 
-.hero-scroll i {
-  font-size: 32px;
-  
-  animation: bounce 2s infinite;
+.welcome-content {
+  gap: 30px;
+  align-items: start;
 }
 
-@keyframes bounce {
-
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(-10px);
-  }
-
-  60% {
-    transform: translateY(-5px);
-  }
+.welcome-text h2 {
+  font-size: 42px;
+  color: #01647a;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
-/* Services Section */
+.welcome-text p {
+  margin-bottom: 10px;
+  color: #666666;
+  line-height: 1.3;
+  font-size: 1.1rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.welcome-text img {
+  width: 400px;
+  float: left;
+  border: 2px solid rgb(95, 96, 97);
+  margin: 20px 25px 15px 10px;
+  border-radius: 5%;
+  box-shadow: 1px 1px 5px rgb(136, 134, 134);
+}
+
+/* ========================================
+   SERVICES SECTION
+   ======================================== */
 .services-section {
   padding: 10px 0;
   background-color: #f5f5f5;
   scroll-margin-top: 110px;
 }
+
 .services-section-team {
   padding: 10px 0;
-  background-color:linear-gradient(135deg, #939696 10%,  #009FE3 100%);
+  background-color: linear-gradient(135deg, #939696 10%, #009FE3 100%);
   scroll-margin-top: 110px;
 }
 
@@ -600,8 +476,6 @@ a {
   margin-bottom: 30px;
   color: #01647a;
 }
-
-
 
 .services-grid {
   display: grid;
@@ -617,11 +491,12 @@ a {
   transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 .service-card-team {
   position: relative;
   overflow: hidden;
   border-radius: 0;
-  background-color:linear-gradient(135deg, #939696 10%,  #009FE3 100%);
+  background-color: linear-gradient(135deg, #939696 10%, #009FE3 100%);
   transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -648,6 +523,12 @@ a {
   color: #333333;
 }
 
+.service-content h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #666666;
+}
+
 .service-content p {
   color: #666666;
   line-height: 1.4;
@@ -655,7 +536,6 @@ a {
   font-size: 1rem;
   text-align: justify;
   text-justify: inter-word;
-
 }
 
 .service-content .btn {
@@ -673,321 +553,62 @@ a {
   background-color: #0088A8;
 }
 
-/* Payment Plans Section */
-.payment-section {
-  padding: 100px 0;
-  background-color: #e8e8e8;
-  text-align: center;
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background-color: #d8d7d7;
+  color: #666666;
+  padding: 20px 0 10px;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 15px;
 }
 
-.payment-banner {
-  margin-bottom: 60px;
-}
-
-.payment-banner img {
-  max-width: 600px;
-  width: 100%;
-  border-radius: 10px;
-}
-
-.plans-container {
+.footer-content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.plan-card {
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 169, 206, 0.3);
-  padding: 40px 30px;
-  border-radius: 0;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.plan-card.recommended {
-  border-color: #00A9CE;
-}
-
-.plan-card.recommended::before {
-  content: 'Recommended';
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #00A9CE;
-  color: #ffffff;
-  padding: 5px 15px;
-  font-size: 12px;
-  font-weight: 600;
-  transform: rotate(90deg);
-  transform-origin: right bottom;
-}
-
-.plan-card:hover {
-  border-color: #00A9CE;
-  box-shadow: 0 10px 40px rgba(0, 169, 206, 0.3);
-}
-
-.plan-name {
-  color: #00A9CE;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.plan-price {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #333333;
-}
-
-.plan-price small {
-  font-size: 20px;
-  font-weight: 400;
-  color: #666666;
-}
-
-.plan-features {
-  list-style: none;
-  margin: 30px 0;
-  text-align: left;
-}
-
-.plan-features li {
-  padding: 12px 0;
-  color: #666666;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.plan-card .btn-outline {
-  margin-top: 20px;
-}
-
-/* Partners Section */
-.partners-section {
-  padding: 80px 0;
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.partners-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 900px;
-  margin: 60px auto;
-  align-items: center;
-}
-
-.partner-logo {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 120px;
-  transition: all 0.3s ease;
-}
-
-.partner-logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-}
-
-.partner-logo img {
-  max-width: 100%;
-  max-height: 60px;
-}
-
-/* CTA Section */
-.cta-section {
-  padding: 100px 0;
-  background-color: #f5f5f5;
-  text-align: center;
-}
-
-.cta-icon {
-  font-size: 10px;
-  color: #00A9CE;
-  margin-bottom: 30px;
-}
-
-.cta-section h2 {
-  font-size: 10px;
-  margin-bottom: 10px;
-  font-weight: 0;
-  color: #333333;
-}
-
-.cta-section p {
-  max-width: 800px;
-  margin: 0 auto 20px;
-  color: #666666;
-  line-height: 1;
-}
-
-.cta-phone {
-  font-size: 32px;
-  color: #00A9CE;
-  font-weight: 700;
-  margin: 30px 0;
-  display: block;
-}
-
-/* Welcome Section */
-.welcome-section {
-  padding: 50px 0;
-  background-color: #f5f5f5;
-}
-
-.welcome-content {
-  /* display: grid; */
-  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 30px;
-  align-items: start;
+  margin-bottom: 0px;
 }
 
-.welcome-text h2 {
-  font-size: 42px;
-  color: #01647a;
-  
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-.welcome-text .highlight {
-  color: #00A9CE;
-  font-weight: 400;
-}
-
-.welcome-text p {
-  margin-bottom: 10px;
+.footer-column h3 {
   color: #666666;
-  line-height: 1.3;
-  font-size: 1.1 rem;
-  text-align: justify;
-  text-justify: inter-word;
-}
-
-.welcome-text p a {
-  color: #00A9CE;
-}
-
-.welcome-text p a:hover {
-  text-decoration: underline;
-}
-
-.welcome-text .signature {
-  font-weight: 600;
-  color: #333333;
-  margin-top: 30px;
-  font-size: 20px;
-}
-
-.welcome-text .signature span {
-  display: block;
-  font-weight: 400;
-  font-size: 14px;
-  color: #00A9CE;
-  margin-top: 5px;
-}
-
-.welcome-text .btn {
-  margin-top: 30px;
-}
-
-.welcome-video {
-  position: relative;
-}
-
-.welcome-video .video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(0, 169, 206, 0.3);
-}
-
-.welcome-video .video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Registration Section */
-.registration-section {
-  padding: 100px 0;
-  background-color: #f5f5f5;
-}
-
-.registration-section .section-title {
-  text-align: center;
-  margin-bottom: 60px;
-  color: #333333;
-}
-
-.registration-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-}
-
-.registration-column h3 {
-  font-size: 28px;
-  margin-bottom: 30px;
-  color: #333333;
-  font-weight: 300;
-}
-
-.registration-section .info-block {
-  margin-bottom: 40px;
-}
-
-.registration-section .info-block h4 {
-  font-size: 22px;
   margin-bottom: 15px;
-  color: #00A9CE;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
 }
 
-.registration-section .info-block h5 {
-  font-size: 18px;
-  margin: 25px 0 12px;
-  color: #333333;
-  font-weight: 600;
-}
-
-.registration-section .info-block p {
+.footer-about p {
   color: #666666;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-
-.registration-section .info-block p em {
-  font-style: italic;
-  color: #00A9CE;
-}
-
-/* Social Media Section */
-.social-cta {
-  padding: 80px 0;
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.social-cta h2 {
+  line-height: 1.2;
+  margin-bottom: 0px;
   font-size: 12px;
-  margin-bottom: 30px;
-  font-weight: 300;
-  color: #333333;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+.footer-links li a {
+  color: #009FE3;
+  transition: all 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #0088A8;
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #666666;
 }
 
 .social-icons-large {
@@ -1016,90 +637,16 @@ a {
   transform: translateY(-5px);
 }
 
-/* Footer */
-.footer {
-  background-color: #d8d7d7;
-  color: #666666;
-  padding: 20px 0 10px;
-  border-top: 1px solid #e0e0e0;
-  margin-top: 15px;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 30px;
-  margin-bottom: 0px;
-}
-
-.footer-column h3 {
-  color:#666666;
-  margin-bottom: 15px;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.footer-about p {
-  color: #666666;
-  line-height: 1.2;
-  margin-bottom: 0px;
-  font-size: 12px;
-}
-
-.footer-contact p {
-  margin: 8px 0;
-  color: #666666;
-}
-
-.footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: 2px;
-  font-size: 13px;
-}
-
-.footer-links li a {
-  color: #009FE3;
-  transition: all 0.3s ease;
-}
-
-.footer-links li a:hover {
-  color: #0088A8;
-  padding-left: 5px;
-}
-
-.footer-bottom {
- 
-  
-  padding-top: 20px;
-  text-align: center;
-  font-size: 13px;
-  color: #666666;
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Accessibility */
-:focus-visible {
-  outline: 2px solid #009FE3;
-  outline-offset: 3px;
+.highlight {
+  color: #00A9CE;
+  font-weight: 400;
 }
 
 /* ========================================
    RESPONSIVE STYLES
    ======================================== */
 
-/* ========================================
-   TABLET RESPONSIVE (max-width: 1024px)
-   ======================================== */
 @media (max-width: 1024px) {
-
-  /* Call Banner */
   .call-banner {
     padding: 6px 0;
   }
@@ -1111,36 +658,16 @@ html {
     font-size: 11px;
   }
 
-  .call-banner .call-left {
-    gap: 6px;
-  }
-
-  .call-banner .call-left a {
-    width: 26px;
-    height: 26px;
-    font-size: 11px;
-  }
-
   .call-banner .call-right {
     flex-direction: column;
     gap: 3px;
     align-items: flex-end;
   }
 
-  .call-banner .call-item {
-    font-size: 10px;
-  }
-
-  .call-banner .call-item i {
-    font-size: 10px;
-  }
-
-  /* Header */
   .header {
     top: 34px;
   }
 
-  /* Navigation */
   .nav-social-container {
     position: fixed;
     top: 0;
@@ -1155,19 +682,10 @@ html {
     z-index: 1002;
     overflow-y: auto;
     margin-left: 0;
-    
   }
 
   .nav-social-container.active {
     right: 0;
-  }
-
-  .header-phone {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 20px;
-    padding: 12px 20px;
-    order: -1;
   }
 
   .nav-menu {
@@ -1176,13 +694,12 @@ html {
     gap: 0;
   }
 
-  .nav-menu>li {
+  .nav-menu > li {
     width: 100%;
     border-bottom: 1px solid #e0e0e0;
-    
   }
 
-  .nav-menu>li>a {
+  .nav-menu > li > a {
     width: 100%;
     border-radius: 0;
     padding: 15px 20px;
@@ -1203,7 +720,7 @@ html {
     border: none;
   }
 
-  .nav-menu li.submenu-open>.submenu {
+  .nav-menu li.submenu-open > .submenu {
     max-height: 500px;
   }
 
@@ -1219,18 +736,8 @@ html {
     padding-left: 60px;
   }
 
-  .nav-menu li.has-submenu.submenu-open>a::after {
+  .nav-menu li.has-submenu.submenu-open > a::after {
     transform: rotate(180deg);
-  }
-
-  .header-social {
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 1px solid #e0e0e0;
-  }
-
-  .header-social::before {
-    display: none;
   }
 
   .hamburger-menu {
@@ -1254,16 +761,6 @@ html {
     display: flex;
   }
 
-  /* Logo */
-  .logo-main {
-    font-size: 24px;
-  }
-
-  .logo-sub {
-    font-size: 9px;
-  }
-
-  /* Hero */
   .hero {
     padding-top: 100px;
   }
@@ -1287,31 +784,8 @@ html {
     justify-content: center;
   }
 
-  .hero-scroll {
-    display: none;
-  }
-
-  /* Sections */
   .services-grid {
     grid-template-columns: 1fr;
-  }
-
-  .plans-container {
-    grid-template-columns: 1fr;
-  }
-
-  .partners-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .welcome-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .registration-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
   }
 
   .footer-content {
@@ -1320,12 +794,7 @@ html {
   }
 }
 
-/* ========================================
-   MOBILE RESPONSIVE (max-width: 768px)
-   ======================================== */
 @media (max-width: 768px) {
-
-  /* Call Banner */
   .call-banner {
     padding: 8px 0;
   }
@@ -1335,12 +804,6 @@ html {
     gap: 8px;
   }
 
-  .call-banner .call-left {
-    order: 2;
-    width: 100%;
-    justify-content: center;
-  }
-
   .call-banner .call-right {
     align-items: center;
     order: 1;
@@ -1348,26 +811,13 @@ html {
   }
 
   .call-banner .call-item {
-    justify-content: center;
-    text-align: center;
     font-size: 11px;
   }
 
-  /* Header */
   .header {
     top: 70px;
   }
 
-  /* Logo */
-  .logo-main {
-    font-size: 20px;
-  }
-
-  .logo-sub {
-    font-size: 8px;
-  }
-
-  /* Hero */
   .hero {
     padding-top: 0px;
     min-height: 100vh;
@@ -1385,8 +835,6 @@ html {
   .hero-content .tagline {
     font-size: 14px;
     font-weight: 300;
-
-    
   }
 
   .hero-content .btn {
@@ -1394,7 +842,6 @@ html {
     padding: 12px 30px;
   }
 
-  /* Sections */
   .section-title {
     font-size: 32px;
   }
@@ -1402,22 +849,9 @@ html {
   .service-content h3 {
     font-size: 22px;
   }
-
-  .cta-section h2 {
-    font-size: 32px;
-  }
-
-  .partners-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
-/* ========================================
-   SMALL MOBILE RESPONSIVE (max-width: 480px)
-   ======================================== */
 @media (max-width: 480px) {
-
-  /* Call Banner */
   .call-banner {
     padding: 6px 0;
   }
@@ -1426,28 +860,10 @@ html {
     font-size: 10px;
   }
 
-  .call-banner .call-left a {
-    width: 24px;
-    height: 24px;
-    font-size: 10px;
-  }
-
-  /* Header */
   .header {
     top: 65px;
   }
 
-  /* Logo */
-  .logo-main {
-    font-size: 18px;
-  }
-
-  .logo-sub {
-    font-size: 7px;
-    letter-spacing: 1px;
-  }
-
-  /* Hero */
   .hero {
     padding-top: 0px;
   }
@@ -1473,20 +889,8 @@ html {
     padding: 12px 24px;
   }
 
-  /* Services */
   .service-image {
     height: 250px;
-  }
-
-  /* Plans */
-  .plan-price {
-    font-size: 36px;
-  }
-
-  /* Sections */
-  .services-section,
-  .registration-section {
-    padding: 60px 0;
   }
 
   .section-title {
@@ -1495,10 +899,6 @@ html {
   }
 }
 
-/* ========================================
-   EXTRA SMALL DEVICES (max-width: 375px)
-   For iPhone SE, iPhone 12 mini, etc.
-   ======================================== */
 @media (max-width: 375px) {
   .call-banner {
     padding: 5px 0;
@@ -1508,20 +908,8 @@ html {
     font-size: 9px;
   }
 
-  .call-banner .call-item i {
-    font-size: 9px;
-  }
-
   .header {
     top: 60px;
-  }
-
-  .logo-main {
-    font-size: 16px;
-  }
-
-  .logo-sub {
-    font-size: 6px;
   }
 
   .hero {
@@ -1532,24 +920,7 @@ html {
     font-size: 26px;
   }
 
-  /* .hero-content .tagline {
-    font-size: 11px;
-  } */
-
   .section-title {
     font-size: 26px;
   }
-  
 }
-.welcome-text img{
-  
-  width:400px;
-
-float: left;
-  border: 2px solid rgb(95, 96, 97);
-  
-  margin: 20px 25px 15px 10px;
-  border-radius: 5%;
- box-shadow: 1px 1px 5px rgb(136, 134, 134);
-  
-  }
