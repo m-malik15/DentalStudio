@@ -246,13 +246,13 @@ html {
   padding: 0;
 }
 
-.nav-menu > li {
+.nav-menu>li {
   position: relative;
   list-style: none;
   list-style-type: none;
 }
 
-.nav-menu > li > a {
+.nav-menu>li>a {
   display: block;
   padding: 10px 13px;
   font-size: 12px;
@@ -264,13 +264,13 @@ html {
   transition: all 0.3s ease;
 }
 
-.nav-menu > li > a:hover,
-.nav-menu > li > a.active {
+.nav-menu>li>a:hover,
+.nav-menu>li>a.active {
   background-color: #009FE3;
   color: #ffffff;
 }
 
-.nav-menu li.has-submenu > a::after {
+.nav-menu li.has-submenu>a::after {
   content: '\25BC';
   font-size: 8px;
   margin-left: 6px;
@@ -278,7 +278,7 @@ html {
   display: inline-block;
 }
 
-.nav-menu li.has-submenu:hover > a::after {
+.nav-menu li.has-submenu:hover>a::after {
   transform: rotate(180deg);
 }
 
@@ -302,7 +302,7 @@ html {
   list-style-type: none;
 }
 
-.nav-menu li:hover > .submenu {
+.nav-menu li:hover>.submenu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -329,7 +329,7 @@ html {
   padding-left: 25px;
 }
 
-.nav-menu .submenu .has-submenu > a::after {
+.nav-menu .submenu .has-submenu>a::after {
   content: '\25B6';
   font-size: 8px;
   float: right;
@@ -344,7 +344,7 @@ html {
   margin-left: 5px;
 }
 
-.nav-menu .submenu li:hover > .submenu {
+.nav-menu .submenu li:hover>.submenu {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -358,13 +358,19 @@ html {
    HERO SECTION
    ======================================== */
 .hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(rgba(136, 136, 141, 0.3), rgb(195, 195, 195, 0.4)),
-    url("../images/enter.Jpeg") center/cover no-repeat;
-  padding-top: 100px;
+  .hero {
+    position: relative;
+    min-height: calc(100vh - 35px);
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(136, 136, 141, 0.3), rgba(195, 195, 195, 0.4)),
+      url("../images/enter.Jpeg") no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    padding-top: 0;
+  }
 }
 
 .hero-team {
@@ -378,9 +384,11 @@ html {
 }
 
 .hero-content {
-  max-width: 700px;
-  padding: 60px 0;
-  margin-top: 11rem;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 .hero-content h1 {
@@ -406,10 +414,10 @@ html {
 .hero-buttons {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
-  border-color: #e8e8e8;
-  margin-bottom: 100px;
-  margin-left: 15px;
+  justify-content: center;
+  /* Center buttons horizontally */
+  margin-top: 20px;
+  margin-left: 0;
 }
 
 .hero-content .btn {
@@ -593,7 +601,7 @@ html {
 }
 
 .service-image {
-  width:100%;
+  width: 100%;
   height: fit-content;
   object-fit: cover;
   transition: transform 0.4s ease;
@@ -768,7 +776,7 @@ html {
 }
 
 /* Card Subtitle - First Paragraph */
-.service-content > p:first-of-type {
+.service-content>p:first-of-type {
   font-weight: 600;
   color: #2c3e50;
   font-size: 17px;
@@ -795,7 +803,8 @@ html {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 6.8em; /* 4 lines * 1.7 line-height */
+  max-height: 6.8em;
+  /* 4 lines * 1.7 line-height */
 }
 
 /* Team Page Card Typography */
@@ -949,7 +958,7 @@ html {
     font-size: 26px;
   }
 
-  .service-content > p:first-of-type {
+  .service-content>p:first-of-type {
     font-size: 16px;
   }
 
@@ -984,7 +993,7 @@ html {
     font-size: 24px;
   }
 
-  .service-content > p:first-of-type {
+  .service-content>p:first-of-type {
     font-size: 15px;
   }
 
@@ -1026,7 +1035,7 @@ html {
     font-size: 22px;
   }
 
-  .service-content > p:first-of-type {
+  .service-content>p:first-of-type {
     font-size: 15px;
   }
 
@@ -1081,6 +1090,7 @@ html {
     font-size: 28px;
   }
 }
+
 /* ========================================
    FOOTER - IMPROVED STYLING
    ======================================== */
@@ -1364,6 +1374,14 @@ html {
 }
 
 @media (max-width: 768px) {
+
+  .hero {
+    min-height: calc(100vh - 70px);
+    margin-top: 70px;
+    background-size: cover;
+    /* On mobile, 'cover' is usually better due to screen ratio */
+  }
+
   .footer {
     padding: 40px 0 0;
   }
@@ -1486,12 +1504,12 @@ html {
     gap: 0;
   }
 
-  .nav-menu > li {
+  .nav-menu>li {
     width: 100%;
     border-bottom: 1px solid #e0e0e0;
   }
 
-  .nav-menu > li > a {
+  .nav-menu>li>a {
     width: 100%;
     border-radius: 0;
     padding: 15px 20px;
@@ -1512,7 +1530,7 @@ html {
     border: none;
   }
 
-  .nav-menu li.submenu-open > .submenu {
+  .nav-menu li.submenu-open>.submenu {
     max-height: 500px;
   }
 
@@ -1528,7 +1546,7 @@ html {
     padding-left: 60px;
   }
 
-  .nav-menu li.has-submenu.submenu-open > a::after {
+  .nav-menu li.has-submenu.submenu-open>a::after {
     transform: rotate(180deg);
   }
 
