@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Menu Debug - The Dental Studios</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Debug styles to make menu visible */
+        .nav-social-container {
+            background-color: rgba(255, 0, 0, 0.1) !important; /* Light red to see it */
+        }
+        
+        .nav-social-container.active {
+            background-color: rgba(0, 255, 0, 0.3) !important; /* Green when active */
+            right: 0 !important;
+            display: flex !important;
+        }
+        
+        /* Debug info box */
+        .debug-info {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: black;
+            color: lime;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 99999;
+            max-width: 300px;
+            border: 2px solid lime;
+        }
+    </style>
+</head>
+<body>
+    <!-- Debug Info Box -->
+    <div class="debug-info" id="debugInfo">
+        <div>Screen: <span id="screenWidth"></span></div>
+        <div>Menu State: <span id="menuState">closed</span></div>
+        <div>Toggle Found: <span id="toggleFound">-</span></div>
+        <div>Container Found: <span id="containerFound">-</span></div>
+    </div>
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Simple test content -->
+    <div style="padding: 200px 20px; text-align: center;">
+        <h1>Mobile Menu Debug Page</h1>
+        <p>Open browser console (F12) and resize to mobile width</p>
+        <p>Click the hamburger menu and watch the console and debug box</p>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="./scripts/components.js"></script>
+    <script>
+        // Debug script
+        function updateDebugInfo() {
+            const container = document.querySelector('.nav-social-container');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const hamburger = document.querySelector('.hamburger-menu');
+            
+            document.getElementById('screenWidth').textContent = window.innerWidth + 'px';
+            document.getElementById('menuState').textContent = container?.classList.contains('active') ? 'OPEN' : 'closed';
+            document.getElementById('toggleFound').textContent = (toggle || hamburger) ? 'YES' : 'NO';
+            document.getElementById('containerFound').textContent = container ? 'YES' : 'NO';
+        }
+        
+        setInterval(updateDebugInfo, 100);
+        
+        window.addEventListener('resize', updateDebugInfo);
+    </script>
+    <script src="./scripts/mobile-menu.js"></script>
+</body>
+</html>
