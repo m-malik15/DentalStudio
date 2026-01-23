@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - The Dental Studios</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2300A9CE'/%3E%3Ctext x='50' y='70' font-size='60' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'%3ETD%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/contact.css">
+    <link rel="stylesheet" href="./styles/mobile-menu-fix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="hero-content-contact">
+                <h1>Get In Touch</h1>
+                <p>We're here to help answer any questions you may have about our services</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <!-- Contact Form - Full Width Top Section -->
+            <div class="contact-form-section">
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <div class="form-title">
+                            <h2>Send Us A Message</h2>
+                            <p>Fill out the form below and we'll get back to you as soon as possible</p>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject">
+                                    <option value="">Select a subject</option>
+                                    <option value="appointment">Book an Appointment</option>
+                                    <option value="enquiry">General Enquiry</option>
+                                    <option value="emergency">Emergency</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info Grid -->
+            <div class="contact-info-grid">
+                <!-- Contact Details Card -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3>Contact Information</h3>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-text">
+                                <span class="info-label">Phone</span>
+                                <a href="tel:01414236106">0141 423 6106</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-text">
+                                <span class="info-label">Email</span>
+                                <a href="mailto:reception@thedentalstudios.org">reception@thedentalstudios.org</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-text">
+                                <span class="info-label">Address</span>
+                                <p>398 Victoria Road<br>G42 8YP Glasgow<br>United Kingdom</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Opening Hours Card -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-clock"></i>
+                        <h3>Opening Hours</h3>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="hours-list">
+                            <div class="hours-item">
+                                <span class="day">Monday – Thursday</span>
+                                <span class="time">9:00 AM – 6:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Friday</span>
+                                <span class="time">9:00 AM – 6:00 PM</span>
+                            </div>
+                            <div class="hours-item weekend">
+                                <span class="day">Saturday & Sunday</span>
+                                <span class="time closed">Closed</span>
+                            </div>
+                        </div>
+                        <div class="emergency-notice">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>For dental emergencies outside opening hours, please call our emergency line</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Card -->
+                <div class="info-card map-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-location-dot"></i>
+                        <h3>Find Us</h3>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2241.234!2d-4.2563!3d55.8428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDUwJzM0LjEiTiA0wrAxNScyMi43Ilc!5e0!3m2!1sen!2suk!4v1234567890" 
+                                    width="100%" 
+                                    height="250" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Common Scripts - Load after placeholders -->
+    <script src="./scripts/components.js"></script>
+    <script src="./scripts/mobile-menu.js"></script>
+    
+    <!-- Page-specific script for contact form -->
+    <script src="./scripts/contact.js"></script>
+</body>
+
+</html>
