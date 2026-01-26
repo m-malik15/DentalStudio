@@ -5,7 +5,7 @@
 /* Hero Section */
 .contact-hero {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    padding: 140px 0 80px 0;
+    padding: 60px 0 20px 0;
     position: relative;
     margin-top: 70px;
 }
@@ -44,7 +44,7 @@
 
 /* Contact Section */
 .contact-section {
-    padding: 80px 0;
+    padding: 40px 0;
     background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
 }
 
@@ -64,7 +64,7 @@
 .contact-form-wrapper {
     background: #ffffff;
     border-radius: 15px;
-    padding: 50px;
+    padding: 20px 50px 50px 50px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     border: 1px solid #e0e0e0;
 }
@@ -85,7 +85,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    background: #009FE3;
     border-radius: 15px;
     color: #ffffff;
     font-size: 28px;
