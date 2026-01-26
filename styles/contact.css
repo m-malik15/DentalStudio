@@ -4,7 +4,8 @@
 
 /* Hero Section */
 .contact-hero {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    background: linear-gradient(rgba(136, 136, 141, 0.6), rgba(73, 73, 73, 0.7)),
+    url("../images/thefullview.Jpeg") center/cover no-repeat;
     padding: 60px 0 20px 0;
     position: relative;
     margin-top: 70px;
@@ -23,23 +24,27 @@
 .hero-content-contact {
     text-align: center;
     max-width: 800px;
+    height: 150px;
     margin: 0 auto;
 }
 
 .hero-content-contact h1 {
-    font-size: 56px;
+    margin-top: 50px;
+    font-size: 46px;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 10px; 
     line-height: 1.2;
     text-transform: capitalize;
+    text-shadow: 2px 2px #171818;
 }
 
 .hero-content-contact p {
-    font-size: 18px;
+    font-size: 20px;
     color: #ecf0f1;
-    line-height: 1.6;
-    opacity: 0.95;
+    line-height: 1.2;
+    /* opacity: 0.95; */
+    text-shadow: 2px 2px #171818;
 }
 
 /* Contact Section */
@@ -379,7 +384,7 @@
 
 .map-container {
     width: 100%;
-    height: 300px;
+    height: 370px;
     overflow: hidden;
     border-radius: 0 0 12px 12px;
 }
