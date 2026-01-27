@@ -1,0 +1,232 @@
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+/* =========================
+   CARE – LAYOUT UTILITIES
+========================= */
+.care-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.care-text-center {
+  text-align: center;
+}
+
+.care-max-900 {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   CARE – HERO SECTION
+========================= */
+.care-hero {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  padding-top: 120px;
+  background:
+    linear-gradient(rgba(136, 136, 141, 0.6), rgba(73, 73, 73, 0.7)),
+    url("../images/happyfamily.jpg") center / cover no-repeat;
+  color: var(--care-white);
+  margin-top: 70px;
+}
+
+.care-hero-content {
+  max-width: 700px;
+}
+
+.care-hero-title {
+  font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.care-hero-tagline {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+
+/* =========================
+   CARE – WELCOME SECTION
+========================= */
+.care-welcome-section {
+  padding: 20px 0;
+  background: linear-gradient(to bottom, var(--care-white), var(--care-light-bg));
+}
+
+.care-welcome-title {
+  font-size: 32px;
+  color: var(--care-primary);
+  margin-left: 90px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #01647a;
+
+}
+
+.care-welcome-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.care-welcome-content p {
+  font-size: 16px;
+  color: var(--care-text-muted);
+}
+
+/* =========================
+   CARE – CONTENT SECTIONS
+========================= */
+.care-section {
+  margin-left: 125px;
+  margin-right: 135px;
+  background: var(--care-white);
+  scroll-margin-top: 110px;
+   
+}
+
+.care-section:nth-of-type(even) {
+  background: var(--care-light-bg);
+}
+
+.care-section-title-small {
+  font-size: 32px;
+  color: var(--care-primary);
+  
+  margin-bottom: 10px;
+  color: #01647a;
+}
+
+
+
+
+
+
+/* =========================
+   CARE – MAIN SECTION TITLE
+========================= */
+.care-section-title {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--care-primary);
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  padding-bottom: 18px;
+   color: #01647a;
+   margin-top: 50px;
+}
+
+.care-section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--care-accent),
+    var(--care-secondary)
+  );
+  border-radius: 2px;
+}
+
+/* =========================
+   CARE – SERVICES GRID
+========================= */
+.care-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.care-service-card {
+  background: var(--care-white);
+  border-radius: 16px;
+  margin-bottom: 40px;
+  padding: 35px 30px;
+  box-shadow: var(--care-shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.care-service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--care-shadow-hover);
+}
+
+.care-service-content h3 {
+  font-size: 28px;
+  color: var(--care-primary);
+ 
+  color: white;
+  margin-bottom: 30px;
+}
+
+.care-service-content p {
+  font-size: 14px;
+  color: var(--care-text-muted);
+  line-height: 1.2;
+  color: white;
+}
+
+.care-service-content p:first-of-type {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--care-secondary);
+  color: white;
+  margin-bottom: 25px;
+}
+
+/* =========================
+   CARE – LISTS (DEAS)
+========================= */
+.care-section ul {
+  padding-left: 20px;
+}
+
+.care-section li {
+  font-size: 15px;
+  color: var(--care-text-muted);
+  margin-bottom: 10px;
+}
+
+/* =========================
+   CARE – RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .care-hero {
+    padding-top: 100px;
+    text-align: center;
+  }
+
+  .care-hero-content {
+    margin: 0 auto;
+  }
+
+  .care-section-title-small {
+    font-size: 26px;
+  }
+
+  .care-section-title {
+    margin-bottom: 45px;
+  }
+}

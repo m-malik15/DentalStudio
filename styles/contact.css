@@ -4,12 +4,18 @@
 
 /* Hero Section */
 .contact-hero {
+    position: relative;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
     background: linear-gradient(rgba(136, 136, 141, 0.6), rgba(73, 73, 73, 0.7)),
     url("../images/thefullview.Jpeg") center/cover no-repeat;
     padding: 60px 0 20px 0;
-    position: relative;
+    
     margin-top: 70px;
 }
+ 
 
 .contact-hero::before {
     content: '';
