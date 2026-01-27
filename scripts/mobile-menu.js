@@ -1,80 +1,62 @@
-// Mobile Menu Handler - Simple and Reliable
+// Mobile Menu Handler - FINAL FIX (Checks for links before closing)
 (function() {
     'use strict';
     
     function initializeMobileMenu() {
-        console.log('=== Initializing Mobile Menu ===');
-        
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        // 1. SELECTORS
         const hamburgerMenu = document.querySelector('.hamburger-menu');
-        const navSocialContainer = document.querySelector('.nav-social-container');
+        const navLinksContainer = document.querySelector('.nav-links');
         const navMenu = document.querySelector('.nav-menu');
         
-        console.log('Mobile Toggle Button:', mobileMenuToggle);
-        console.log('Hamburger Button:', hamburgerMenu);
-        console.log('Nav Container:', navSocialContainer);
-        console.log('Nav Menu:', navMenu);
-        
-        if (!navSocialContainer) {
-            console.error('Nav container not found!');
+        if (!navLinksContainer || !hamburgerMenu) {
             return;
         }
         
-        // Function to toggle menu
+        // 2. TOGGLE FUNCTION
         function toggleMenu(e) {
             if (e) {
                 e.preventDefault();
                 e.stopPropagation();
             }
             
-            console.log('Toggle menu clicked!');
-            const isActive = navSocialContainer.classList.contains('active');
-            console.log('Current state:', isActive ? 'open' : 'closed');
-            
-            navSocialContainer.classList.toggle('active');
+            navLinksContainer.classList.toggle('active');
             document.body.classList.toggle('menu-open');
+            hamburgerMenu.classList.toggle('active');
+        }
+        
+        // 3. CLOSE MENU FUNCTION
+        function closeMenu() {
+            navLinksContainer.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            hamburgerMenu.classList.remove('active');
             
-            if (mobileMenuToggle) {
-                mobileMenuToggle.classList.toggle('active');
+            // Close all submenus
+            if (navMenu) {
+                navMenu.querySelectorAll('.has-submenu').forEach(li => {
+                    li.classList.remove('submenu-open');
+                });
             }
-            if (hamburgerMenu) {
-                hamburgerMenu.classList.toggle('active');
-            }
-            
-            console.log('New state:', navSocialContainer.classList.contains('active') ? 'open' : 'closed');
         }
         
-        // Attach click handlers
-        if (mobileMenuToggle) {
-            console.log('Attaching mobile toggle handler');
-            mobileMenuToggle.addEventListener('click', toggleMenu);
-        }
+        // 4. HAMBURGER BUTTON CLICK
+        hamburgerMenu.addEventListener('click', toggleMenu);
         
-        if (hamburgerMenu) {
-            console.log('Attaching hamburger handler');
-            hamburgerMenu.addEventListener('click', toggleMenu);
-        }
-        
-        // Handle submenu clicks on mobile
+        // 5. SUBMENU LOGIC (Mobile Only)
         if (navMenu) {
             const submenuItems = navMenu.querySelectorAll('.has-submenu > a');
-            console.log('Found submenu items:', submenuItems.length);
             
-            submenuItems.forEach(item => {
+            submenuItems.forEach((item) => {
                 item.addEventListener('click', function(e) {
-                    // Only prevent default on mobile
                     if (window.innerWidth <= 1024) {
+                        // Prevent default for submenu parents to toggle them
                         e.preventDefault();
-                        e.stopPropagation();
                         
                         const parentLi = this.parentElement;
                         
-                        // Close all other submenus at the same level
-                        const siblings = Array.from(parentLi.parentElement.children);
-                        siblings.forEach(sibling => {
-                            if (sibling !== parentLi) {
-                                sibling.classList.remove('submenu-open');
-                            }
+                        // Close other open submenus at the same level
+                        const parentUl = parentLi.parentElement;
+                        parentUl.querySelectorAll(':scope > .has-submenu').forEach(li => {
+                            if (li !== parentLi) li.classList.remove('submenu-open');
                         });
                         
                         // Toggle current submenu
@@ -82,75 +64,74 @@
                     }
                 });
             });
+
+            // Handle ALL link clicks
+            const allLinks = navMenu.querySelectorAll('a');
+            
+            allLinks.forEach((link) => {
+                const isSubmenuParent = link.parentElement.classList.contains('has-submenu');
+                
+                // Only mark regular links with a data attribute
+                if (!isSubmenuParent) {
+                    link.setAttribute('data-regular-link', 'true');
+                }
+            });
         }
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (navSocialContainer.classList.contains('active')) {
-                if (!e.target.closest('.navbar') && !e.target.closest('.mobile-menu-toggle') && !e.target.closest('.hamburger-menu')) {
-                    console.log('Closing menu - clicked outside');
-                    navSocialContainer.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                    if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
-                    if (hamburgerMenu) hamburgerMenu.classList.remove('active');
+        // 6. CLICK HANDLER ON NAV CONTAINER
+        navLinksContainer.addEventListener('click', (e) => {
+            // Find if click was on a link or inside a link
+            const clickedLink = e.target.closest('a');
+            
+            if (clickedLink) {
+                const isSubmenuParent = clickedLink.parentElement.classList.contains('has-submenu');
+                
+                if (window.innerWidth <= 1024 && !isSubmenuParent) {
+                    // Close the menu
+                    closeMenu();
                 }
             }
         });
         
-        // Close menu when clicking on a regular link (not submenu parent)
-        if (navMenu) {
-            const navLinks = navMenu.querySelectorAll('a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Only close if not a submenu parent or if on mobile and clicking a final link
-                    const isSubmenuParent = this.parentElement.classList.contains('has-submenu');
-                    
-                    if (window.innerWidth <= 1024 && !isSubmenuParent) {
-                        console.log('Closing menu - link clicked');
-                        navSocialContainer.classList.remove('active');
-                        document.body.classList.remove('menu-open');
-                        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
-                        if (hamburgerMenu) hamburgerMenu.classList.remove('active');
-                    }
-                });
-            });
-        }
+        // 7. CLICK OUTSIDE TO CLOSE
+        document.addEventListener('click', (e) => {
+            if (navLinksContainer.classList.contains('active')) {
+                // Check if click is inside nav OR on hamburger
+                const isInsideNav = navLinksContainer.contains(e.target);
+                const isHamburger = e.target.closest('.hamburger-menu');
+                
+                // Only close if click is truly outside
+                if (!isInsideNav && !isHamburger) {
+                    closeMenu();
+                }
+            }
+        });
         
-        console.log('=== Mobile Menu Initialized ===');
+        // 8. CLOSE MENU ON WINDOW RESIZE TO DESKTOP
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024 && navLinksContainer.classList.contains('active')) {
+                closeMenu();
+            }
+        });
     }
     
-    // Wait for components to load
-    let attempts = 0;
-    const maxAttempts = 50; // 5 seconds max
-    
-    function waitForHeader() {
-        attempts++;
-        const header = document.querySelector('.header');
-        
-        if (header) {
-            console.log('Header found, initializing mobile menu');
-            initializeMobileMenu();
-        } else if (attempts < maxAttempts) {
-            console.log('Waiting for header... attempt', attempts);
-            setTimeout(waitForHeader, 100);
-        } else {
-            console.error('Header not found after maximum attempts');
-        }
-    }
-    
-    // Start when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', waitForHeader);
-    } else {
-        waitForHeader();
-    }
-    
-    // Also listen for component loaded events
+    // STARTUP LOGIC: Listen for componentLoaded event from components.js
     document.addEventListener('componentLoaded', function(e) {
         if (e.detail && e.detail.targetSelector === '#header-placeholder') {
-            console.log('Header component loaded event received');
-            setTimeout(initializeMobileMenu, 100);
+            setTimeout(initializeMobileMenu, 50);
         }
     });
-    
+
+    // BACKUP: If header is already in DOM (for static pages)
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.querySelector('.header')) {
+                initializeMobileMenu();
+            }
+        });
+    } else {
+        if (document.querySelector('.header')) {
+            initializeMobileMenu();
+        }
+    }
 })();

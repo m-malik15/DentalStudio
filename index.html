@@ -2,18 +2,21 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dental Studios - Glasgow</title>
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2300A9CE'/%3E%3Ctext x='50' y='70' font-size='60' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'%3ETD%3C/text%3E%3C/svg%3E">
+    
+    <!-- Main styles only - header CSS is loaded by header.html component -->
     <link rel="stylesheet" href="./styles/styles.css">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- Header Placeholder -->
+    <!-- Header Placeholder - header.html will load its own CSS -->
     <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
@@ -22,9 +25,7 @@
             <div class="hero-content">
                 <h1>the dental studios</h1>
 
-
                 <p class="tagline">DENTAL • ORTHODONTICS • FACIAL REJUVENATION</p>
-
 
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Book Appointment Today!</a>
@@ -34,66 +35,65 @@
                 </div>
             </div>
         </div>
-
     </section>
 
-<!-- Welcome Section -->
-<section class="welcome-section">
-    <div class="container">
-        <div class="welcome-content">
-            <div class="welcome-text">
-                <h2>about us</h2>
-                
-                <div class="welcome-text-content">
-                    <img src="images/room2.Jpeg" alt="Dental Studio Treatment Room">
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <h2>about us</h2>
                     
-                    <div class="welcome-text-right">
-                        <p>Visiting the dentist can be a daunting experience, we know life can be stressful enough without having to worry about the dentist.</p>
-                        <p>That's why our practice is different. We have created a warm and friendly environment where our team of passionate professionals will show you how easy it can be to care for your teeth. We strive to work at your pace-small step at a time if need be ensuring you get honest advice and quality care.</p>
-                        <p>We want everyone to feel welcome at our clinic. We provide NHS and private treatment options for everybody. So please do get in touch for a breath of fresh air.</p>
+                    <div class="welcome-text-content">
+                        <img src="images/room2.Jpeg" alt="Dental Studio Treatment Room">
+                        
+                        <div class="welcome-text-right">
+                            <p>Visiting the dentist can be a daunting experience, we know life can be stressful enough without having to worry about the dentist.</p>
+                            <p>That's why our practice is different. We have created a warm and friendly environment where our team of passionate professionals will show you how easy it can be to care for your teeth. We strive to work at your pace-small step at a time if need be ensuring you get honest advice and quality care.</p>
+                            <p>We want everyone to feel welcome at our clinic. We provide NHS and private treatment options for everybody. So please do get in touch for a breath of fresh air.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Highlights Section -->
-<section class="highlights-section">
-    <div class="container">
-        <div class="highlights-grid">
-            <div class="highlight-card">
-                <div class="highlight-icon">
-                    <i class="fas fa-building"></i>
+    <!-- Highlights Section -->
+    <section class="highlights-section">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Established 40 years ago</h3>
+                        <p>In Scotland</p>
+                    </div>
                 </div>
-                <div class="highlight-content">
-                    <h3>Established 40 years ago</h3>
-                    <p>In Scotland</p>
+                
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>19 Specialists to help</h3>
+                        <p>Qualified Staff</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="highlight-card">
-                <div class="highlight-icon">
-                    <i class="fas fa-user-md"></i>
-                </div>
-                <div class="highlight-content">
-                    <h3>19 Specialists to help</h3>
-                    <p>Qualified Staff</p>
-                </div>
-            </div>
-            
-            <div class="highlight-card">
-                <div class="highlight-icon">
-                    <i class="fas fa-comment-medical"></i>
-                </div>
-                <div class="highlight-content">
-                    <h3>Professional experience</h3>
-                    <p>Satisfied Patients</p>
+                
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-comment-medical"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Professional experience</h3>
+                        <p>Satisfied Patients</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Services Section -->
     <section class="services-section" id="services">
@@ -205,7 +205,9 @@
     <div id="footer-placeholder"></div>
 
     <!-- Load component loader script -->
-    <script src="./scripts/components.js"></script>
+    <script src="./scripts/register-sw.js"></script>
+   <script src="./scripts/components.js"></script>
+   <script src="./scripts/mobile-menu.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,6 @@
+<!-- Include header-specific CSS -->
+<link rel="stylesheet" href="./styles/header-navigation-complete.css">
+
 <!-- Call Banner -->
 <div class="call-banner">
     <div class="container">
@@ -32,17 +35,23 @@
         <nav class="navbar">
             <div class="logo">
                 <div class="logo-text">
-                    <img src="./images/logo-slick.png" alt="The Dental Studios">
+                    <div class="logo">
+                        <a href="index.html" class="logo-text">
+                            <img src="./images/logo-slick.png" alt="The Dental Studios">
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <!-- FIXED: Single hamburger menu button -->
+            <button class="hamburger-menu" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <div class="nav-social-container">
+            <!-- FIXED: Changed class from nav-social-container to nav-links -->
+            <div class="nav-links">
                 <ul class="nav-menu">
                     <li><a href="index.html">HOME</a></li>
                     <li class="has-submenu">
@@ -79,12 +88,6 @@
                     </li>
                     <li><a href="contact-us.html">CONTACT US</a></li>
                 </ul>
-
-                <button class="hamburger-menu" aria-label="Open menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </nav>
     </div>
