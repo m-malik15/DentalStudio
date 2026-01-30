@@ -53,3 +53,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Dispatch event that all components are loaded
     document.dispatchEvent(new CustomEvent('allComponentsLoaded'));
 });
+
+
+function toggleReadMore(button) {
+    const container = button.closest('.service-text-container');
+    const isCollapsed = container.classList.contains('collapsed');
+    
+    if (isCollapsed) {
+        container.classList.remove('collapsed');
+        container.classList.add('expanded');
+        button.querySelector('.read-more-text').textContent = 'Read less';
+    } else {
+        container.classList.add('collapsed');
+        container.classList.remove('expanded');
+        button.querySelector('.read-more-text').textContent = 'Read more';
+    }
+}

@@ -6,7 +6,10 @@ h3 {
 }
 
 p {
-  margin: 0 0 16px;
+  margin: 0 0 12px;
+  line-height: 1.7;
+  color: #555;
+  font-size: 16px;
 }
 
 /* =========================
@@ -28,6 +31,10 @@ p {
   margin-right: auto;
 }
 
+.care-max-900 p:last-of-type {
+  margin-bottom: 0;
+}
+
 /* =========================
    CARE – HERO SECTION
 ========================= */
@@ -39,7 +46,8 @@ p {
   padding-top: 120px;
   background:
     linear-gradient(rgba(136, 136, 141, 0.6), rgba(73, 73, 73, 0.7)),
-    url("../images/happyfamily.jpg") center / cover no-repeat;
+    url("../images/happyfamily.jpg") center center / cover no-repeat;
+  background-attachment: scroll;
   color: var(--care-white);
   margin-top: 70px;
 }
@@ -61,23 +69,24 @@ p {
   opacity: 0.9;
 }
 
-
 /* =========================
    CARE – WELCOME SECTION
 ========================= */
 .care-welcome-section {
-  padding: 20px 0;
+  padding: 40px 0 25px;
   background: linear-gradient(to bottom, var(--care-white), var(--care-light-bg));
 }
 
 .care-welcome-title {
-  font-size: 32px;
-  color: var(--care-primary);
-  margin-left: 90px;
-  margin-bottom: 10px;
-  text-align: left;
+  font-size: 36px;
   color: #01647a;
-
+  margin-bottom: 15px;
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .care-welcome-content {
@@ -86,19 +95,23 @@ p {
 }
 
 .care-welcome-content p {
-  font-size: 16px;
-  color: var(--care-text-muted);
+  font-size: 17px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.care-welcome-content p:last-child {
+  margin-bottom: 0;
 }
 
 /* =========================
    CARE – CONTENT SECTIONS
 ========================= */
 .care-section {
-  margin-left: 125px;
-  margin-right: 135px;
   background: var(--care-white);
   scroll-margin-top: 110px;
-   
+  padding: 25px 0;
 }
 
 .care-section:nth-of-type(even) {
@@ -106,17 +119,16 @@ p {
 }
 
 .care-section-title-small {
-  font-size: 32px;
-  color: var(--care-primary);
-  
-  margin-bottom: 10px;
+  font-size: 36px;
   color: #01647a;
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-
-
-
-
 
 /* =========================
    CARE – MAIN SECTION TITLE
@@ -124,13 +136,14 @@ p {
 .care-section-title {
   font-size: clamp(32px, 4vw, 44px);
   font-weight: 700;
-  color: var(--care-primary);
+  color: #01647a;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 35px;
+  margin-top: 0;
   position: relative;
   padding-bottom: 18px;
-   color: #01647a;
-   margin-top: 50px;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
 }
 
 .care-section-title::after {
@@ -155,17 +168,16 @@ p {
 .care-services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  gap: 25px;
 }
 
 .care-service-card {
-  background: var(--care-white);
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   border-radius: 16px;
-  margin-bottom: 40px;
-  padding: 35px 30px;
+  margin-bottom: 0;
+  padding: 40px 35px;
   box-shadow: var(--care-shadow-soft);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
 }
 
 .care-service-card:hover {
@@ -174,26 +186,28 @@ p {
 }
 
 .care-service-content h3 {
-  font-size: 28px;
-  color: var(--care-primary);
- 
+  font-size: 26px;
   color: white;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
 }
 
 .care-service-content p {
-  font-size: 14px;
-  color: var(--care-text-muted);
-  line-height: 1.2;
-  color: white;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.7;
+  margin-bottom: 12px;
 }
 
 .care-service-content p:first-of-type {
   font-weight: 600;
   font-size: 16px;
-  color: var(--care-secondary);
-  color: white;
-  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 20px;
+  font-style: italic;
+  letter-spacing: 0.3px;
 }
 
 /* =========================
@@ -201,32 +215,232 @@ p {
 ========================= */
 .care-section ul {
   padding-left: 20px;
+  margin-top: 25px;
 }
 
 .care-section li {
-  font-size: 15px;
-  color: var(--care-text-muted);
-  margin-bottom: 10px;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 14px;
+  line-height: 1.7;
+  padding-left: 8px;
+}
+
+.care-section li::marker {
+  color: #01647a;
+  font-weight: bold;
 }
 
 /* =========================
    CARE – RESPONSIVE
 ========================= */
+@media (max-width: 1024px) {
+  .care-hero {
+    min-height: 55vh;
+    padding-top: 100px;
+    margin-top: 100px;
+  }
+
+  .care-welcome-section {
+    padding: 35px 0 25px;
+  }
+
+  .care-welcome-title {
+    font-size: 32px;
+  }
+
+  .care-section-title-small {
+    font-size: 32px;
+  }
+
+  .care-section-title {
+    font-size: 38px;
+    margin-bottom: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .care-hero {
-    padding-top: 100px;
+    min-height: 50vh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    margin-top: 70px;
     text-align: center;
+    background-position: center center;
   }
 
   .care-hero-content {
     margin: 0 auto;
   }
 
+  .care-hero-title {
+    font-size: 36px;
+  }
+
+  .care-hero-tagline {
+    font-size: 12px;
+  }
+
+  .care-welcome-section {
+    padding: 30px 0 20px;
+  }
+
   .care-section-title-small {
-    font-size: 26px;
+    font-size: 28px;
   }
 
   .care-section-title {
     margin-bottom: 45px;
+    font-size: 32px;
+  }
+
+  .care-welcome-title {
+    font-size: 28px;
+    text-align: left;
+  }
+
+  .care-section {
+    padding: 20px 0;
+  }
+
+  .care-welcome-content p {
+    font-size: 16px;
+  }
+
+  .care-container {
+    padding: 0 25px;
+  }
+
+  .care-services-grid {
+    gap: 20px;
+  }
+
+  .care-service-card {
+    padding: 30px 25px;
+  }
+
+  .care-service-content h3 {
+    font-size: 24px;
+  }
+
+  .care-service-content p {
+    font-size: 14px;
+  }
+
+  .care-service-content p:first-of-type {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .care-hero {
+    min-height: 45vh;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    margin-top: 65px;
+    background-position: 60% center;
+  }
+
+  .care-hero-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .care-hero-tagline {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .care-welcome-section {
+    padding: 25px 0 15px;
+  }
+
+  .care-welcome-title {
+    font-size: 24px;
+  }
+
+  .care-section-title-small {
+    font-size: 24px;
+  }
+
+  .care-section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+  }
+
+  .care-section-title::after {
+    width: 80px;
+    height: 3px;
+  }
+
+  .care-welcome-content p {
+    font-size: 15px;
+  }
+
+  .care-container {
+    padding: 0 20px;
+  }
+
+  .care-section {
+    padding: 18px 0;
+  }
+
+  .care-services-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .care-service-card {
+    padding: 25px 20px;
+  }
+
+  .care-service-content h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .care-service-content p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .care-service-content p:first-of-type {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .care-section li {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .care-hero {
+    min-height: 40vh;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    margin-top: 60px;
+  }
+
+  .care-hero-title {
+    font-size: 28px;
+  }
+
+  .care-welcome-title {
+    font-size: 22px;
+  }
+
+  .care-section-title-small {
+    font-size: 22px;
+  }
+
+  .care-section-title {
+    font-size: 26px;
+  }
+
+  .care-service-content h3 {
+    font-size: 20px;
   }
 }

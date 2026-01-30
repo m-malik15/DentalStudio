@@ -7,15 +7,44 @@
   box-sizing: border-box;
 }
 
+/* Global Font Stack and Base Styles */
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   color: #333333;
   background-color: #f5f5f5;
   overflow-x: hidden;
-
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Fallback for older browsers */
+@supports not (font-family: -apple-system) {
+  body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
+/* Ensure consistent rendering across devices */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Better button and input fonts */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* Improve text rendering */
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
 body.components-loaded {
     opacity: 1;
 }
@@ -102,13 +131,17 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Keep your gradient and image path */
   background: linear-gradient(rgba(136, 136, 141, 0.3), rgba(195, 195, 195, 0.4)),
-    url("../images/enter.Jpeg") no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  padding-top: 0;
-}
+    url("../images/dental_studios_2000x1333.png") no-repeat center center;
+  
+  /* Change this line */
+  background-size: cover; 
+  
 
+  padding-top: 0;
+
+}
 .hero-team {
   position: relative;
   height: 60vh;
@@ -491,11 +524,12 @@ html {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  position: relative;
 }
 
 .service-content h3 {
   font-size: 28px;
-  margin: 0 0 10px 0;
+  margin: 0 0 15px 0;
   color: #01647a;
   font-weight: 700;
   transition: color 0.3s ease;
@@ -523,40 +557,67 @@ html {
   text-align: left;
 }
 
-.service-content p {
-  color: #555555;
-  line-height: 1.6;
-  margin: 0 0 10px 0;
+/* Service Text Container with Read More/Less */
+.service-text-container {
+  position: relative;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.service-text {
+  color: #444444;
+  line-height: 1.7;
   font-size: 15px;
-  text-align: left !important;
   font-weight: 400;
-  word-spacing: normal;
-  letter-spacing: normal;
-  white-space: normal;
 }
 
-.service-content>p:first-of-type {
-  font-weight: 600;
-  color: #2c3e50;
-  font-size: 17px;
-  margin: 0 0 10px 0;
-  line-height: 1.5;
-  text-align: left !important;
+.service-text p {
+  margin: 0 0 12px 0;
+  text-align: left;
 }
 
-.service-content p:not(:first-of-type) {
+.service-text-container.collapsed .service-text {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 6.4em;
-  text-align: left !important;
-  margin: 0 0 10px 0;
+  max-height: 6.8em;
 }
 
-.service-content p:last-of-type {
-  flex-grow: 1;
+.service-text-container.expanded .service-text {
+  display: block;
+  max-height: none;
+}
+
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #009FE3;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.read-more-btn:hover {
+  color: #00A9CE;
+  gap: 8px;
+}
+
+.read-more-btn i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.service-text-container.expanded .read-more-btn i {
+  transform: rotate(180deg);
 }
 
 .service-content .btn {
@@ -854,6 +915,10 @@ html {
    RESPONSIVE STYLES
    ======================================== */
 @media (max-width: 1024px) {
+  .hero {
+    background-position: center center;
+  }
+  
   .hero-content h1 {
     font-size: 48px;
   }
@@ -933,18 +998,21 @@ html {
 
   .service-content h3 {
     font-size: 26px;
-    margin: 0 0 8px 0;
+    margin: 0 0 12px 0;
   }
 
-  .service-content>p:first-of-type {
-    font-size: 16px;
-    margin: 0 0 8px 0;
-  }
-
-  .service-content p {
+  .service-text {
     font-size: 14px;
-    margin: 0 0 8px 0;
     line-height: 1.6;
+  }
+
+  .service-text p {
+    margin: 0 0 10px 0;
+  }
+
+  .service-text-container.collapsed .service-text {
+    -webkit-line-clamp: 3;
+    max-height: 5.1em;
   }
 
   .footer-content {
@@ -965,7 +1033,8 @@ html {
   .hero {
     min-height: calc(100vh - 70px);
     margin-top: 70px;
-    background-size: cover;
+    background-size: auto 100%;
+    background-position: center center;
   }
 
   .hero-content {
@@ -986,7 +1055,6 @@ html {
     font-size: 16px;
     padding: 12px 30px;
   }
-
   .welcome-section {
     padding: 40px 0 30px 0;
   }
@@ -1044,21 +1112,19 @@ html {
 
   .service-content h3 {
     font-size: 24px;
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
   }
 
-  .service-content>p:first-of-type {
-    font-size: 15px;
-    margin: 0 0 8px 0;
-  }
-
-  .service-content p {
+  .service-text {
     font-size: 14px;
-    margin: 0 0 8px 0;
     line-height: 1.5;
   }
 
-  .service-content p:not(:first-of-type) {
+  .service-text p {
+    margin: 0 0 8px 0;
+  }
+
+  .service-text-container.collapsed .service-text {
     -webkit-line-clamp: 3;
     max-height: 4.5em;
   }
@@ -1101,9 +1167,11 @@ html {
 }
 
 @media (max-width: 480px) {
-  .hero {
+ .hero {
     min-height: calc(100vh - 65px);
     margin-top: 65px;
+    background-size: auto 100%;
+    background-position: 50% center;
   }
 
   .hero-content {
@@ -1187,23 +1255,25 @@ html {
 
   .service-content h3 {
     font-size: 22px;
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
   }
 
-  .service-content>p:first-of-type {
-    font-size: 15px;
-    margin: 0 0 8px 0;
-  }
-
-  .service-content p {
+  .service-text {
     font-size: 14px;
     line-height: 1.5;
+  }
+
+  .service-text p {
     margin: 0 0 8px 0;
   }
 
-  .service-content p:not(:first-of-type) {
+  .service-text-container.collapsed .service-text {
     -webkit-line-clamp: 3;
     max-height: 4.5em;
+  }
+
+  .read-more-btn {
+    font-size: 13px;
   }
 
   .footer {
@@ -1245,6 +1315,8 @@ html {
   .hero {
     min-height: calc(100vh - 60px);
     margin-top: 60px;
+    background-size: auto 100%;
+    background-position: center center;
   }
 
   .hero-content h1 {
@@ -1263,4 +1335,3 @@ html {
     font-size: 20px;
   }
 }
-

@@ -7,7 +7,7 @@
 .call-banner {
     background: linear-gradient(135deg, #939696 10%, #009FE3 100%);
     color: #ffffff;
-    padding: 9px 0;
+    padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -19,12 +19,60 @@
     letter-spacing: 0.3px;
 }
 
+/* IMPORTANT: Page content should account for header height
+   Desktop: header is at top: 38px, so content needs margin-top: ~108px (38 + 70)
+   Tablet (<=768px): header is at top: 50px, so content needs margin-top: ~120px
+   Mobile (<=480px): header is at top: 54px, so content needs margin-top: ~110px
+   Very small (<=360px): header is at top: 48px, so content needs margin-top: ~98px
+*/
+
+/* Hide desktop-only content on mobile */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+/* Optional: Hide address completely on very small screens if space is tight */
+@media (max-width: 320px) {
+    .address-item {
+        display: none; /* Uncomment if you want to hide address on very small screens */
+    }
+}
+
 .call-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
+}
+
+/* Better mobile wrapping */
+@media (max-width: 600px) {
+    .call-banner {
+        padding: 6px 0;
+    }
+    
+    .call-content {
+        justify-content: center;
+        gap: 8px;
+        flex-direction: column;
+    }
+    
+    .call-left {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .call-right {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .call-item {
+        gap: 6px;
+    }
 }
 
 .call-left,
@@ -63,7 +111,7 @@
     background: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
-    top: 35px;
+    top: 38px;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -74,7 +122,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0 10px 0;
+    padding: 20px 0;
     position: relative;
 }
 
@@ -85,12 +133,15 @@
 }
 
 .logo img {
-    height: 50px;
+    height: 55px;
     width: auto;
+    display: block;
 }
 
 .logo-text a {
     text-decoration: none;
+    display: block;
+    line-height: 0;
 }
 
 /* Hamburger Menu Button - Hidden on Desktop */
@@ -104,7 +155,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1003;
+    z-index: 1004;
     position: relative;
 }
 
@@ -153,7 +204,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 5px;
+        gap: 8px;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -165,8 +216,9 @@
     }
 
     .nav-menu>li>a {
-        display: block;
-        padding: 10px 18px;
+        display: flex;
+        align-items: center;
+        padding: 12px 10px;
         color: #2c3e50;
         text-decoration: none;
         font-weight: 600;
@@ -175,6 +227,7 @@
         transition: all 0.3s ease;
         border-radius: 6px;
         white-space: nowrap;
+        line-height: 1.5;
     }
 
     .nav-menu>li>a:hover {
@@ -263,10 +316,25 @@
    ======================================== */
 @media (max-width: 1024px) {
 
+    /* Reset for mobile menu - force pure white */
+    .nav-links,
+    .nav-links *,
+    .nav-menu,
+    .nav-menu * {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        opacity: 1 !important;
+        filter: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
     /* Show hamburger menu */
     .hamburger-menu {
         display: flex !important;
-        z-index: 1003;
+        z-index: 1004;
+        position: relative;
     }
 
     /* Hide desktop navigation links by default */
@@ -277,20 +345,24 @@
         width: 320px;
         max-width: 85vw;
         height: 100vh;
-        background-color: #ffffff;
+        background: rgb(255, 255, 255) !important;
         display: flex;
         flex-direction: column;
         padding: 80px 0 20px 0;
         transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1002;
+        z-index: 1003;
         box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
         overflow-y: auto;
         overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        opacity: 1 !important;
     }
 
     /* Show menu when active */
     .nav-links.active {
         right: 0 !important;
+        opacity: 1 !important;
+        background: rgb(255, 255, 255) !important;
     }
 
     /* Dark overlay when menu is open */
@@ -301,16 +373,17 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 1001;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 1002;
         animation: fadeIn 0.3s ease;
-        /* CRITICAL FIX: Allow clicks to pass through to elements behind */
         pointer-events: none;
     }
 
     /* Allow clicks on the nav menu itself */
     .nav-links {
         pointer-events: all;
+        isolation: isolate; /* Create new stacking context */
+        will-change: transform; /* Optimize rendering */
     }
 
     @keyframes fadeIn {
@@ -337,12 +410,16 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        background: rgb(255, 255, 255) !important;
+        opacity: 1 !important;
     }
 
     .nav-menu>li {
         width: 100%;
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e8e8e8;
         margin: 0;
+        background: rgb(255, 255, 255) !important;
+        opacity: 1 !important;
     }
 
     .nav-menu>li:last-child {
@@ -354,15 +431,17 @@
         display: block;
         padding: 16px 25px;
         text-decoration: none;
-        color: #2c3e50;
+        color: rgb(26, 26, 26) !important;
         font-weight: 600;
         font-size: 15px;
         transition: all 0.3s ease;
         letter-spacing: 0.5px;
+        background: rgb(255, 255, 255) !important;
+        opacity: 1 !important;
     }
 
     .nav-menu>li>a:hover {
-        background-color: rgba(0, 169, 206, 0.1);
+        background-color: rgba(0, 169, 206, 0.08);
         color: #00A9CE;
         padding-left: 30px;
     }
@@ -386,11 +465,11 @@
     /* Mobile submenu styles */
     .nav-menu .submenu {
         position: static;
-        opacity: 1;
+        opacity: 1 !important;
         visibility: visible;
         transform: translateY(0);
         box-shadow: none;
-        background-color: rgba(0, 169, 206, 0.05);
+        background: rgb(248, 249, 250) !important;
         margin: 0;
         padding: 0;
         max-height: 0;
@@ -407,6 +486,8 @@
     .nav-menu .submenu li {
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         margin: 0;
+        background: rgb(248, 249, 250) !important;
+        opacity: 1 !important;
     }
 
     .nav-menu .submenu li:last-child {
@@ -416,51 +497,68 @@
     .nav-menu .submenu li a {
         padding: 14px 25px 14px 45px;
         display: block;
-        color: #555;
+        color: rgb(51, 51, 51) !important;
         font-size: 14px;
         font-weight: 500;
         text-decoration: none;
         transition: all 0.3s ease;
+        background: rgb(248, 249, 250) !important;
+        opacity: 1 !important;
     }
 
     .nav-menu .submenu li a:hover {
-        background-color: rgba(0, 169, 206, 0.15);
+        background-color: rgba(0, 169, 206, 0.12) !important;
         color: #00A9CE;
         padding-left: 50px;
     }
 
     /* Nested submenus in mobile */
     .nav-menu .submenu .submenu {
-        background-color: rgba(0, 169, 206, 0.08);
+        background: rgb(240, 241, 243) !important;
+        opacity: 1 !important;
+    }
+
+    .nav-menu .submenu .submenu li {
+        background: rgb(240, 241, 243) !important;
+        opacity: 1 !important;
     }
 
     .nav-menu .submenu .submenu li a {
         padding-left: 65px;
         font-size: 13px;
+        background: rgb(240, 241, 243) !important;
+        color: rgb(51, 51, 51) !important;
+        opacity: 1 !important;
     }
 
     .nav-menu .submenu .submenu li a:hover {
         padding-left: 70px;
+        background-color: rgba(0, 169, 206, 0.12) !important;
     }
 
     /* Call banner adjustments for mobile */
     .call-banner {
-        padding: 8px 0;
+        padding: 10px 0;
         font-size: 13px;
     }
 
     .call-content {
-        flex-direction: column;
-        gap: 8px;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: 15px;
     }
 
-    .address-item {
-        display: none;
+    .call-left,
+    .call-right {
+        gap: 15px;
     }
 
     .call-right {
-        width: 100%;
         justify-content: center;
+    }
+    
+    .address-item {
+        font-size: 12px;
     }
 }
 
@@ -471,11 +569,27 @@
     }
 
     .logo img {
-        height: 45px;
+        height: 50px;
     }
 
     .header {
-        top: 45px;
+        top: 50px; /* Reduced to eliminate gap */
+    }
+
+    .navbar {
+        padding: 16px 0;
+    }
+
+    .call-content {
+        font-size: 12px;
+    }
+    
+    .call-banner {
+        padding: 6px 0;
+    }
+    
+    .address-item span {
+        font-size: 11px;
     }
 }
 
@@ -500,7 +614,7 @@
     }
 
     .logo img {
-        height: 40px;
+        height: 42px;
     }
 
     .hamburger-menu {
@@ -513,7 +627,37 @@
     }
 
     .header {
-        top: 45px;
+        top: 54px; /* Adjusted to eliminate gap */
+    }
+
+    .navbar {
+        padding: 12px 0;
+    }
+
+    .call-banner {
+        padding: 5px 0;
+        font-size: 11px;
+    }
+    
+    .call-content {
+        gap: 6px;
+    }
+    
+    .call-left,
+    .call-right {
+        gap: 6px;
+    }
+    
+    .address-item span {
+        font-size: 10.5px;
+    }
+    
+    .call-item i {
+        font-size: 12px;
+    }
+    
+    .phone-item a {
+        font-size: 12px;
     }
 }
 
@@ -524,6 +668,35 @@
     }
 
     .header {
-        top: 45px;
+        top: 48px; /* Adjusted to eliminate gap */
+    }
+
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+
+    .call-banner {
+        font-size: 10.5px;
+        padding: 4px 0;
+    }
+    
+    .call-content {
+        gap: 5px;
+    }
+    
+    .address-item span {
+        font-size: 10px;
+    }
+    
+    .phone-item a {
+        font-size: 11px;
+    }
+    
+    .call-item i {
+        font-size: 11px;
     }
 }
