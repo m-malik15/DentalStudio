@@ -144,12 +144,13 @@ html {
 }
 .hero-team {
   position: relative;
-  height: 60vh;
+  height: 65vh;
   display: flex;
   align-items: center;
   background: linear-gradient(rgba(136, 136, 141, 0.5), rgb(195, 195, 195, 0.4)),
-    url("../images/orthodontics.jpg") center/cover no-repeat;
+    url("../images/ourteam.png") center/cover no-repeat;
   padding-top: 100px;
+  margin-top: 90px;
 }
 
 .hero-content {
