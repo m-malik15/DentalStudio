@@ -513,8 +513,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function downloadReferralForm() {
     // Open the PDF in a new tab
+    // The PDF has metadata set, so the browser will show "Dental Studio Referral Form" as the title
     // Update this path to match where you upload the PDF on your server
-    window.open('./documents/Dental_Referral_Form.pdf', '_blank');
+    const pdfUrl = './documents/Dental_Referral_Form.pdf';
+    
+    // Open in new tab
+    window.open(pdfUrl, '_blank');
     
     showNotification('Opening referral form in new tab...', 'success');
 }
