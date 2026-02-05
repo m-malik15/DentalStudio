@@ -1,0 +1,329 @@
+
+Referrals · HTML
+Copy
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Referral Form - The Dental Studios</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2300A9CE'/%3E%3Ctext x='50' y='70' font-size='60' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'%3ETD%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/referrals.css">
+    <link rel="stylesheet" href="./styles/mobile-menu-fix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="referral-hero">
+        <div class="container">
+            <div class="hero-content-referral">
+                <h1>Dental Referral Form</h1>
+                <p><b>Refer your patients to our specialist dental care team</b></p>
+                <div class="hero-buttons">
+                    <a href="#referral" class="btn btn-primary">
+                        <i class="fas fa-edit"></i> Complete Online Form
+                    </a>
+                    <a href="#" id="downloadReferralBtn" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Download Referral Form (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Form Section -->
+    <section class="referral-section" id="referral">
+        <div class="referral-container">
+            <!-- Referral Form -->
+            <div class="referral-form-section">
+                <div class="referral-form-wrapper">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="form-title">
+                            <h2>Dental Referral Form</h2>
+                            <p>Please complete all required fields to refer a patient to our practice</p>
+                        </div>
+                    </div>
+
+                    <form class="referral-form" id="referralForm">
+                        <!-- Referring Dentist Section -->
+                        <div class="form-section">
+                            <h3 class="section-heading">
+                                <i class="fas fa-stethoscope"></i>
+                                Referring Dentist
+                            </h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dentistName">Dentist's Full Name *</label>
+                                    <input type="text" id="dentistName" name="dentistName" placeholder="Enter dentist's full name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="gdcNumber">GDC Number *</label>
+                                    <input type="text" id="gdcNumber" name="gdcNumber" placeholder="Enter GDC number" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dentistPhone">Dentist's Contact Phone *</label>
+                                    <input type="tel" id="dentistPhone" name="dentistPhone" placeholder="Enter phone number" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="dentistEmail">Dentist's Contact Email *</label>
+                                    <input type="email" id="dentistEmail" name="dentistEmail" placeholder="your.email@example.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="practiceAddress">Dental Practice Address *</label>
+                                <textarea id="practiceAddress" name="practiceAddress" rows="3" placeholder="Enter full practice address" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="referralType">Referral Type *</label>
+                                <select id="referralType" name="referralType" required>
+                                    <option value="">Select referral type</option>
+                                    <option value="Oral Surgery">Oral Surgery - Complex extractions, apicoectomy, biopsies, cancer referrals</option>
+                                    <option value="Orthodontics">Orthodontics - Malocclusions or tooth alignment assessment</option>
+                                    <option value="Endodontics">Endodontics - Complex root canal treatments or re-treatments</option>
+                                    <option value="Periodontics">Periodontics - Advanced gum disease, periodontal surgery, implants</option>
+                                    <option value="Restorative/Prosthodontics">Restorative/Prosthodontics - Complex crowns, bridges, full-mouth reconstruction</option>
+                                    <option value="Special Care Dentistry">Special Care Dentistry - Patients requiring special care (medical histories/phobias)</option>
+                                    <option value="Sedation Referrals">Sedation Referrals - Inhalation or intravenous sedation needed</option>
+                                    <option value="Diagnostic Imaging">Diagnostic Imaging - Specialized scans (CBCT)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Patient Information Section -->
+                        <div class="form-section">
+                            <h3 class="section-heading">
+                                <i class="fas fa-user"></i>
+                                Patient Information
+                            </h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="patientName">Patient's Full Name *</label>
+                                    <input type="text" id="patientName" name="patientName" placeholder="Enter patient's full name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="patientPhone">Patient's Phone *</label>
+                                    <input type="tel" id="patientPhone" name="patientPhone" placeholder="Enter patient's phone number" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="patientAddress">Patient's Address *</label>
+                                <textarea id="patientAddress" name="patientAddress" rows="3" placeholder="Enter patient's address" required></textarea>
+                            </div>
+
+                            <div class="form-row date-row">
+                                <div class="form-group">
+                                    <label for="dateOfBirth">Date of Birth *</label>
+                                    <div class="date-inputs">
+                                        <input type="number" id="dobDay" name="dobDay" placeholder="Day" min="1" max="31" required>
+                                        <select id="dobMonth" name="dobMonth" required>
+                                            <option value="">Month</option>
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                        <input type="number" id="dobYear" name="dobYear" placeholder="Year" min="1925" max="2024" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Medical History Section -->
+                        <div class="form-section">
+                            <h3 class="section-heading">
+                                <i class="fas fa-notes-medical"></i>
+                                Medical & Treatment Information
+                            </h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="currentMedication">Current Medication</label>
+                                    <textarea id="currentMedication" name="currentMedication" rows="3" placeholder="List any current medications"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="allergies">Allergies</label>
+                                    <textarea id="allergies" name="allergies" rows="3" placeholder="List any known allergies"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Treatment(s) Required *</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="treatment" value="Oral Surgery">
+                                        <span>Oral Surgery</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="treatment" value="Fixed Braces">
+                                        <span>Fixed Braces</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="treatment" value="Tooth Alignment">
+                                        <span>Tooth Alignment</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="treatment" value="Implants & Missing Teeth">
+                                        <span>Implants & Missing Teeth</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="treatment" value="Veneers & Crowns">
+                                        <span>Veneers & Crowns</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="medicalHistory">Patient's Medical History *</label>
+                                <textarea id="medicalHistory" name="medicalHistory" rows="4" placeholder="Provide detailed medical history" required></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>If extraction: is prosthesis planned? *</label>
+                                    <div class="radio-group">
+                                        <label class="radio-label">
+                                            <input type="radio" name="prosthesisPlanned" value="Yes">
+                                            <span>Yes</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="prosthesisPlanned" value="No">
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Is IV sedation needed? *</label>
+                                    <div class="radio-group">
+                                        <label class="radio-label">
+                                            <input type="radio" name="sedationNeeded" value="Yes">
+                                            <span>Yes</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="sedationNeeded" value="No">
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Submit -->
+                        <div class="form-footer">
+                            <label class="checkbox-label terms-checkbox">
+                                <input type="checkbox" id="termsAccept" name="termsAccept" required>
+                                <span>I accept the terms and conditions of our <a href="#" class="privacy-link">Privacy Policy</a> *</span>
+                            </label>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Referral
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Information Card -->
+            <div class="info-sidebar">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>Referral Information</h3>
+                    </div>
+                    <div class="info-card-body">
+                        <p><strong>What happens next?</strong></p>
+                        <ol class="info-list">
+                            <li>We will review your referral within 24-48 hours</li>
+                            <li>Our team will contact the patient directly to schedule an appointment</li>
+                            <li>A full assessment will be conducted</li>
+                            <li>We will provide a detailed treatment plan and report back to you</li>
+                        </ol>
+                        
+                        <div class="download-box">
+                            <p><strong>Prefer to download the form?</strong></p>
+                            <a href="#" id="downloadReferralSidebarBtn" class="download-btn">
+                                <i class="fas fa-file-pdf"></i>
+                                Download PDF Form
+                            </a>
+                        </div>
+                        
+                        <div class="contact-info-box">
+                            <p><strong>Need urgent assistance?</strong></p>
+                            <p><i class="fas fa-phone"></i> <a href="tel:01414236106">0141 423 6106</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection#1a687f797f6a6e7375745a6e727f7e7f746e7b76696e6f7e7375693475687d"><span class="__cf_email__" data-cfemail="fb899e989e8b8f929495bb8f939e9f9e958f9a97888f8e9f929488d594899c">[email&#160;protected]</span></a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-clock"></i>
+                        <h3>Opening Hours</h3>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="hours-list">
+                            <div class="hours-item">
+                                <span class="day">Monday – Thursday</span>
+                                <span class="time">9:00 AM – 6:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Friday</span>
+                                <span class="time">9:00 AM – 6:00 PM</span>
+                            </div>
+                            <div class="hours-item weekend">
+                                <span class="day">Saturday & Sunday</span>
+                                <span class="time closed">Closed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Common Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="./scripts/register-sw.js"></script>
+    <script src="./scripts/components.js"></script>
+        <!-- Common Scripts - Load after placeholders -->
+    <script src="./scripts/mobile-menu.js"></script>
+    <script src="./scripts/referrals.js"></script>
+
+    <!-- Common Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    
