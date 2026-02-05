@@ -150,9 +150,18 @@ html {
   background: linear-gradient(rgba(136, 136, 141, 0.5), rgb(195, 195, 195, 0.4)),
     url("../images/ourteam.png") center/cover no-repeat;
   padding-top: 100px;
-  margin-top: 90px;
+  margin-top: 70px;
 }
-
+.hero-treatments {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(136, 136, 141, 0.5), rgb(195, 195, 195, 0.4)),
+    url("../images/room2.Jpeg") center/cover no-repeat;
+  padding-top: 100px;
+  margin-top: 70px;
+}
 .hero-content {
   max-width: 800px;
   width: 100%;
