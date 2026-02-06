@@ -162,6 +162,17 @@ html {
   padding-top: 100px;
   margin-top: 70px;
 }
+.hero-facial {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(136, 136, 141, 0.4), rgb(195, 195, 195, 0.4)),
+    url("../images/facial.jpg") center/cover no-repeat;
+  padding-top: 100px;
+  margin-top: 70px;
+  border: 1px solid lightgray;
+}
 .hero-content {
   max-width: 800px;
   width: 100%;
@@ -398,12 +409,12 @@ html {
 }
 
 .services-section-team>.container>p {
-  text-align: center;
+  text-align: justify;
   font-size: 17px;
   line-height: 1.8;
   color: #444444;
   max-width: 1000px;
-  margin: 0 auto 40px auto;
+  margin: 0 40px 40px 40px;
   font-weight: 400;
 }
 
@@ -519,7 +530,14 @@ html {
   transition: transform 0.4s ease;
   flex-shrink: 0;
 }
-
+.service-imagefacial {
+  width: 100%;
+  
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
+}
 .service-card:hover .service-image {
   transform: scale(1.05);
 }
