@@ -157,8 +157,8 @@ html {
   height: 60vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(136, 136, 141, 0.5), rgb(195, 195, 195, 0.4)),
-    url("../images/room2.Jpeg") center/cover no-repeat;
+  background: linear-gradient(rgba(136, 136, 141, 0.4), rgb(195, 195, 195, 0.4)),
+    url("../images/smilingheroimage.jpg") center/cover no-repeat;
   padding-top: 100px;
   margin-top: 70px;
 }
