@@ -28,8 +28,8 @@
 .hero-content-referral {
     text-align: center;
     max-width: 800px;
-    height: 150px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .hero-content-referral h1 {
@@ -105,6 +105,7 @@
 .referral-section {
     padding: 60px 0;
     background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+    overflow-x: hidden;
 }
 
 .referral-container {
@@ -114,6 +115,8 @@
     display: grid;
     grid-template-columns: 1fr 350px;
     gap: 40px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* ========================================
@@ -125,6 +128,9 @@
     padding: 40px 50px 50px 50px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     border: 1px solid #e0e0e0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .form-header {
@@ -636,23 +642,31 @@
 
 @media (max-width: 768px) {
     .referral-hero {
-        padding: 100px 0 50px 0;
+        height: auto;
+        min-height: 300px;
+        padding: 80px 0 40px 0;
         margin-top: 70px;
-        min-height: 350px;
+    }
+
+    .hero-content-referral {
+        padding: 20px 15px;
     }
 
     .hero-content-referral h1 {
-        font-size: 36px;
+        font-size: 32px;
+        margin-top: 20px;
     }
 
     .hero-content-referral p {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 20px;
     }
 
     .hero-buttons {
         flex-direction: column;
         width: 100%;
-        gap: 15px;
+        gap: 12px;
+        margin-top: 20px;
     }
 
     .hero-buttons .btn {
@@ -665,14 +679,21 @@
         padding: 40px 0;
     }
 
+    .referral-container {
+        padding: 0 15px;
+    }
+
     .referral-form-section {
-        padding: 30px 25px;
+        padding: 25px 20px;
+        border-radius: 10px;
     }
 
     .form-header {
         flex-direction: column;
         text-align: center;
         align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
     }
 
     .form-icon {
@@ -682,7 +703,11 @@
     }
 
     .form-title h2 {
-        font-size: 28px;
+        font-size: 24px;
+    }
+
+    .form-title p {
+        font-size: 13px;
     }
 
     .form-row {
@@ -690,83 +715,18 @@
         gap: 20px;
     }
 
-    .date-inputs {
-        grid-template-columns: 80px 1fr 100px;
-        gap: 8px;
-    }
-
-    .checkbox-group {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .radio-group {
-        flex-direction: column;
-        gap: 15px;
-    }
-
     .form-section {
-        padding: 20px;
-    }
-
-    .submit-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .referral-hero {
-        padding: 90px 0 40px 0;
-    }
-
-    .hero-content-referral h1 {
-        font-size: 28px;
-    }
-
-    .hero-content-referral p {
-        font-size: 14px;
-    }
-
-    .hero-buttons {
-        gap: 12px;
-        margin-top: 20px;
-    }
-
-    .hero-buttons .btn {
-        font-size: 14px;
-        padding: 12px 20px;
-    }
-
-    .referral-section {
-        padding: 30px 0;
-    }
-
-    .referral-form-section {
-        padding: 25px 20px;
-    }
-
-    .form-header {
-        margin-bottom: 25px;
-        padding-bottom: 20px;
-    }
-
-    .form-icon {
-        width: 55px;
-        height: 55px;
-        font-size: 22px;
-    }
-
-    .form-title h2 {
-        font-size: 24px;
-    }
-
-    .form-title p {
-        font-size: 14px;
+        padding: 20px 15px;
+        margin-bottom: 30px;
     }
 
     .section-heading {
-        font-size: 18px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-size: 13px;
     }
 
     .form-group input,
@@ -777,6 +737,151 @@
     }
 
     .date-inputs {
+        grid-template-columns: 70px 1fr 90px;
+        gap: 8px;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .checkbox-label {
+        padding: 8px;
+    }
+
+    .checkbox-label span {
+        font-size: 14px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .form-footer {
+        margin-top: 25px;
+        padding-top: 25px;
+    }
+
+    .terms-checkbox {
+        padding: 12px 15px;
+    }
+
+    .terms-checkbox span {
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 30px;
+        font-size: 15px;
+    }
+
+    .info-sidebar {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .referral-hero {
+        height: auto;
+        min-height: 280px;
+        padding: 70px 0 30px 0;
+    }
+
+    .hero-content-referral {
+        padding: 15px 10px;
+    }
+
+    .hero-content-referral h1 {
+        font-size: 26px;
+        margin-top: 15px;
+        margin-bottom: 8px;
+    }
+
+    .hero-content-referral p {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .hero-buttons .btn {
+        font-size: 13px;
+        padding: 12px 20px;
+    }
+
+    .referral-section {
+        padding: 30px 0;
+    }
+
+    .referral-container {
+        padding: 0 10px;
+    }
+
+    .referral-form-section {
+        padding: 20px 15px;
+        border-radius: 8px;
+    }
+
+    .form-header {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+
+    .form-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .form-title h2 {
+        font-size: 20px;
+    }
+
+    .form-title p {
+        font-size: 12px;
+    }
+
+    .form-section {
+        padding: 15px 12px;
+        margin-bottom: 25px;
+    }
+
+    .section-heading {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .section-heading i {
+        font-size: 18px;
+    }
+
+    .form-group {
+        gap: 6px;
+    }
+
+    .form-group label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+
+    .date-inputs {
         grid-template-columns: 1fr;
         gap: 10px;
     }
@@ -784,17 +889,187 @@
     .date-inputs input,
     .date-inputs select {
         text-align: left;
+        width: 100%;
+    }
+
+    .checkbox-group {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .checkbox-label {
+        padding: 6px;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+    }
+
+    .checkbox-label span {
+        font-size: 13px;
+    }
+
+    .radio-group {
+        gap: 10px;
+        padding: 12px 15px;
+    }
+
+    .radio-label input[type="radio"] {
+        width: 18px;
+        height: 18px;
+    }
+
+    .radio-label span {
+        font-size: 13px;
+    }
+
+    .form-footer {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .terms-checkbox {
+        padding: 10px 12px;
+    }
+
+    .terms-checkbox span {
+        font-size: 12px;
+    }
+
+    .submit-btn {
+        padding: 14px 25px;
+        font-size: 14px;
+    }
+
+    .submit-btn i {
+        font-size: 14px;
     }
 
     .info-card-header {
-        padding: 20px;
+        padding: 18px 15px;
+    }
+
+    .info-card-header i {
+        font-size: 20px;
     }
 
     .info-card-header h3 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .info-card-body {
-        padding: 20px;
+        padding: 20px 15px;
+    }
+
+    .info-card-body p {
+        font-size: 13px;
+    }
+
+    .info-list li {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .download-box {
+        padding: 15px;
+        margin: 20px 0;
+    }
+
+    .download-box p {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .download-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .download-btn i {
+        font-size: 16px;
+    }
+
+    .contact-info-box {
+        padding: 15px;
+    }
+
+    .contact-info-box p {
+        font-size: 12px;
+    }
+
+    .hours-item {
+        padding: 12px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hours-item .day,
+    .hours-item .time {
+        font-size: 12px;
+    }
+}
+
+/* Extra small screens (320px and below) */
+@media (max-width: 375px) {
+    .referral-hero {
+        min-height: 260px;
+        padding: 60px 0 25px 0;
+    }
+
+    .hero-content-referral h1 {
+        font-size: 22px;
+    }
+
+    .hero-content-referral p {
+        font-size: 12px;
+    }
+
+    .hero-buttons .btn {
+        font-size: 12px;
+        padding: 10px 18px;
+    }
+
+    .referral-container {
+        padding: 0 8px;
+    }
+
+    .referral-form-section {
+        padding: 15px 10px;
+    }
+
+    .form-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .form-title h2 {
+        font-size: 18px;
+    }
+
+    .form-section {
+        padding: 12px 10px;
+    }
+
+    .section-heading {
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .checkbox-label span,
+    .radio-label span {
+        font-size: 12px;
+    }
+
+    .submit-btn {
+        padding: 12px 20px;
+        font-size: 13px;
     }
 }

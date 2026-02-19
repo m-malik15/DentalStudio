@@ -181,6 +181,29 @@
 }
 
 /* ========================================
+   ACTIVE MENU ITEM STYLES
+   ======================================== */
+
+/* Active menu item - base styles */
+.nav-menu a.active {
+    color: #009FE3 !important;
+    font-weight: 700;
+    position: relative;
+}
+
+/* Parent menu item when child is active */
+.nav-menu a.active-parent {
+    color: #009FE3 !important;
+    font-weight: 700;
+}
+
+/* Hover effect should still work on active items */
+.nav-menu a.active:hover,
+.nav-menu a.active-parent:hover {
+    color: #00A9CE !important;
+}
+
+/* ========================================
    DESKTOP NAVIGATION (> 1024px)
    ======================================== */
 @media (min-width: 1025px) {
@@ -235,6 +258,23 @@
         color: #00A9CE;
     }
 
+    /* Desktop active indicator - underline */
+    .nav-menu > li > a.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        height: 3px;
+        background: linear-gradient(to right, #009FE3, #00A9CE);
+        border-radius: 2px;
+    }
+
+    /* Desktop active parent - subtle background */
+    .nav-menu > li > a.active-parent {
+        background-color: rgba(0, 159, 227, 0.08);
+    }
+
     /* Desktop Submenu Styles */
     .nav-menu .submenu {
         position: absolute;
@@ -281,6 +321,17 @@
         padding-left: 25px;
     }
 
+    /* Active submenu item on desktop */
+    .nav-menu .submenu li a.active {
+        background-color: rgba(0, 159, 227, 0.12);
+        border-left: 3px solid #009FE3;
+        padding-left: 23px;
+    }
+
+    .nav-menu .submenu li a.active:hover {
+        padding-left: 28px;
+    }
+
     /* Nested submenus on desktop */
     .nav-menu .submenu .has-submenu {
         position: relative;
@@ -300,6 +351,12 @@
         margin-left: 8px;
         font-size: 10px;
         transition: transform 0.3s ease;
+    }
+
+    /* Adjust arrow position for active items with underline */
+    .nav-menu>li.has-submenu>a.active::after,
+    .nav-menu>li.has-submenu>a.active-parent::after {
+        color: #009FE3;
     }
 
     .nav-menu .submenu li.has-submenu>a::after {
@@ -446,6 +503,20 @@
         padding-left: 30px;
     }
 
+    /* Mobile active indicator - left border + background */
+    .nav-menu > li > a.active,
+    .nav-menu > li > a.active-parent {
+        background: rgba(0, 159, 227, 0.1) !important;
+        border-left: 4px solid #009FE3;
+        padding-left: 21px !important;
+    }
+
+    .nav-menu > li > a.active:hover,
+    .nav-menu > li > a.active-parent:hover {
+        padding-left: 26px !important;
+        background: rgba(0, 159, 227, 0.15) !important;
+    }
+
     /* Arrow indicator for mobile submenus */
     .nav-menu li.has-submenu>a::after {
         content: '\f078';
@@ -512,6 +583,19 @@
         padding-left: 50px;
     }
 
+    /* Active submenu item on mobile */
+    .nav-menu .submenu li a.active {
+        background: rgba(0, 159, 227, 0.15) !important;
+        border-left: 4px solid #009FE3;
+        padding-left: 41px !important;
+        font-weight: 600;
+    }
+
+    .nav-menu .submenu li a.active:hover {
+        padding-left: 46px !important;
+        background: rgba(0, 159, 227, 0.2) !important;
+    }
+
     /* Nested submenus in mobile */
     .nav-menu .submenu .submenu {
         background: rgb(240, 241, 243) !important;
@@ -534,6 +618,18 @@
     .nav-menu .submenu .submenu li a:hover {
         padding-left: 70px;
         background-color: rgba(0, 169, 206, 0.12) !important;
+    }
+
+    /* Active nested submenu item on mobile */
+    .nav-menu .submenu .submenu li a.active {
+        background: rgba(0, 159, 227, 0.15) !important;
+        border-left: 4px solid #009FE3;
+        padding-left: 61px !important;
+        font-weight: 600;
+    }
+
+    .nav-menu .submenu .submenu li a.active:hover {
+        padding-left: 66px !important;
     }
 
     /* Call banner adjustments for mobile */
@@ -611,6 +707,33 @@
 
     .nav-menu .submenu .submenu li a {
         padding-left: 55px;
+    }
+
+    /* Active item adjustments for smaller screens */
+    .nav-menu > li > a.active,
+    .nav-menu > li > a.active-parent {
+        padding-left: 16px !important;
+    }
+
+    .nav-menu > li > a.active:hover,
+    .nav-menu > li > a.active-parent:hover {
+        padding-left: 21px !important;
+    }
+
+    .nav-menu .submenu li a.active {
+        padding-left: 36px !important;
+    }
+
+    .nav-menu .submenu li a.active:hover {
+        padding-left: 41px !important;
+    }
+
+    .nav-menu .submenu .submenu li a.active {
+        padding-left: 51px !important;
+    }
+
+    .nav-menu .submenu .submenu li a.active:hover {
+        padding-left: 56px !important;
     }
 
     .logo img {

@@ -69,3 +69,56 @@ function toggleReadMore(button) {
         button.querySelector('.read-more-text').textContent = 'Read more';
     }
 }
+
+// More sophisticated version with special handling for treatment pages
+function highlightActiveMenuItem() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    const checkHeader = setInterval(() => {
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (navMenu) {
+            clearInterval(checkHeader);
+            
+            const navLinks = navMenu.querySelectorAll('a');
+            
+            // Treatment pages that should highlight "TREATMENTS"
+            const treatmentPages = [
+                'generaldentistry.html',
+                'cosmeticdentistry.html',
+                'orthodontics.html',
+                'advancedcare.html',
+                'facialaesthetics.html'
+            ];
+            
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                
+                // Direct match
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                    
+                    // Highlight parent if in submenu
+                    const parentSubmenu = link.closest('.has-submenu');
+                    if (parentSubmenu) {
+                        const parentLink = parentSubmenu.querySelector(':scope > a');
+                        if (parentLink) {
+                            parentLink.classList.add('active-parent');
+                        }
+                    }
+                }
+                
+                // Special case: highlight TREATMENTS parent for treatment pages
+                if (treatmentPages.includes(currentPage) && 
+                    link.textContent.trim() === 'TREATMENTS' && 
+                    link.parentElement.classList.contains('has-submenu')) {
+                    link.classList.add('active-parent');
+                }
+            });
+        }
+    }, 50);
+}
+
+document.addEventListener('allComponentsLoaded', () => {
+    highlightActiveMenuItem();
+});
