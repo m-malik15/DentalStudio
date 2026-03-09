@@ -45,8 +45,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   letter-spacing: -0.02em;
 }
+
 body.components-loaded {
-    opacity: 1;
+  opacity: 1;
 }
 
 .container {
@@ -85,7 +86,7 @@ html {
 }
 
 .btn-primary {
-  background-color: #009FE3;
+  background-color: #234e7e;
   color: #ffffff;
   border: 2px solid #c0c0c0;
   padding: 12px 30px;
@@ -95,13 +96,13 @@ html {
 }
 
 .btn-primary:hover {
-  background-color: rgb(163, 162, 162);
+  background-color: #1a3d63;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 169, 206, 0.4);
+  box-shadow: 0 4px 12px rgba(35, 78, 126, 0.4);
 }
 
 .btn-phone {
-  background-color: #009FE3;
+  background-color: #234e7e;
   color: #ffffff;
   border: 2px solid #c0c0c0;
   padding: 12px 30px;
@@ -111,10 +112,10 @@ html {
 }
 
 .btn-phone:hover {
-  background-color: rgb(163, 162, 162);
+  background-color: #1a3d63;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 169, 206, 0.4);
+  box-shadow: 0 4px 12px rgba(35, 78, 126, 0.4);
 }
 
 .btn-phone i {
@@ -126,53 +127,22 @@ html {
    ======================================== */
 .hero {
   position: relative;
-  min-height: calc(100vh - 35px);
+  min-height: min(75vw, calc(100vh - 35px));
   margin-top: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Keep your gradient and image path */
   background: linear-gradient(rgba(136, 136, 141, 0.1), rgba(195, 195, 195, 0.1)),
-    url("../images/homebanner.png") no-repeat center center;
-  
-  /* Change this line */
-  background-size: cover; 
-  
+    url("../images/hero-image.jpeg") no-repeat center center;
+  background-size: contain;
+  background-color: #978b88;
+  padding: 0;
+}
 
-  padding-top: 0;
+.hero-img {
+  display: none;
+}
 
-}
-.hero-team {
-  position: relative;
-  height: 65vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(rgba(136, 136, 141, 0.5), rgb(195, 195, 195, 0.4)),
-    url("../images/ourteam.png") center/cover no-repeat;
-  padding-top: 100px;
-  margin-top: 90px;
-}
-.hero-treatments {
-  position: relative;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(rgba(136, 136, 141, 0.4), rgb(195, 195, 195, 0.4)),
-    url("../images/smilingheroimage.jpg") center/cover no-repeat;
-  padding-top: 100px;
-  margin-top: 70px;
-}
-.hero-facial {
-  position: relative;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(rgba(136, 136, 141, 0.4), rgb(195, 195, 195, 0.4)),
-    url("../images/facial.jpg") center/cover no-repeat;
-  padding-top: 100px;
-  margin-top: 70px;
-  border: 1px solid lightgray;
-}
 .hero-content {
   max-width: 800px;
   width: 100%;
@@ -205,13 +175,50 @@ html {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-top: 20px;
-  margin-left: 0;
+  margin-top: 8rem;
 }
 
 .hero-content .btn {
   font-size: 14px;
-  padding: 8px 25px;
+  padding: 10px 28px;
+  border-radius: 25px;
+}
+
+/* ========================================
+   OTHER HERO VARIANTS
+   ======================================== */
+.hero-team {
+  position: relative;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(136, 136, 141, 0.5), rgb(195, 195, 195, 0.4)),
+    url("../images/ourteam.png") center/cover no-repeat;
+  padding-top: 100px;
+  margin-top: 90px;
+}
+
+.hero-treatments {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(136, 136, 141, 0.4), rgb(195, 195, 195, 0.4)),
+    url("../images/smilingheroimage.jpg") center/cover no-repeat;
+  padding-top: 100px;
+  margin-top: 70px;
+}
+
+.hero-facial {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(136, 136, 141, 0.4), rgb(195, 195, 195, 0.4)),
+    url("../images/facial.jpg") center/cover no-repeat;
+  padding-top: 100px;
+  margin-top: 70px;
+  border: 1px solid lightgray;
 }
 
 /* ========================================
@@ -264,7 +271,6 @@ html {
 
 .welcome-text img {
   width: 300px;
-  
   flex-shrink: 0;
   border: 3px solid #009FE3;
   border-radius: 10px;
@@ -530,14 +536,15 @@ html {
   transition: transform 0.4s ease;
   flex-shrink: 0;
 }
+
 .service-imagefacial {
   width: 100%;
-  
   object-fit: cover;
   object-position: center top;
   transition: transform 0.4s ease;
   flex-shrink: 0;
 }
+
 .service-card:hover .service-image {
   transform: scale(1.05);
 }
@@ -942,22 +949,25 @@ html {
 /* ========================================
    RESPONSIVE STYLES
    ======================================== */
+
+/* --- Tablet (max 1024px) --- */
 @media (max-width: 1024px) {
   .hero {
+    min-height: min(56.25vw, calc(100vh - 70px));
     background-position: center center;
+    background-size: contain;
   }
-  
+
+  .hero-buttons {
+    margin-top: 6rem;
+  }
+
   .hero-content h1 {
     font-size: 48px;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-
   .hero-buttons .btn {
-    width: 100%;
+    min-width: 220px;
     text-align: center;
     justify-content: center;
   }
@@ -1057,17 +1067,45 @@ html {
   }
 }
 
+/* --- Mobile (max 768px) --- */
 @media (max-width: 768px) {
   .hero {
-    min-height: calc(100vh - 70px);
-    margin-top: 70px;
-    background-size: auto 100%;
-    background-position: center center;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    margin-top: 0;
+    background: none;
+    background-color: transparent;
+    display: block;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    object-fit: contain;
+    background-color: #234e7e;
+    object-position: center center;
+  }
+
+  .hero .container {
+    position: absolute;
+    bottom: 30%;
+    left: 0;
+    right: 0;
   }
 
   .hero-content {
-    margin-top: 1rem;
-    padding: 40px 0;
+    position: static;
+    padding: 0 20px;
+  }
+
+  .hero-buttons .btn {
+    min-width: 250px;
   }
 
   .hero-content h1 {
@@ -1079,10 +1117,24 @@ html {
     font-weight: 300;
   }
 
-  .hero-content .btn {
-    font-size: 16px;
-    padding: 12px 30px;
+  .hero-buttons {
+    margin-top: 4rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
+
+  .hero-buttons .btn {
+    min-width: 220px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-content .btn {
+    font-size: 14px;
+    padding: 10px 24px;
+  }
+
   .welcome-section {
     padding: 40px 0 30px 0;
   }
@@ -1194,17 +1246,14 @@ html {
   }
 }
 
+/* --- Small mobile (max 480px) --- */
 @media (max-width: 480px) {
- .hero {
-    min-height: calc(100vh - 65px);
-    margin-top: 65px;
-    background-size: auto 100%;
-    background-position: 50% center;
+  .hero {
+    margin-top: 0;
   }
 
   .hero-content {
-    margin-top: 1rem;
-    padding: 30px 0;
+    padding: 0 15px 30px;
   }
 
   .hero-content h1 {
@@ -1218,9 +1267,14 @@ html {
     margin-bottom: 20px;
   }
 
+  .hero-buttons {
+    margin-top: 2.5rem;
+    gap: 8px;
+  }
+
   .hero-content .btn {
-    font-size: 14px;
-    padding: 12px 24px;
+    font-size: 12px;
+    padding: 8px 20px;
   }
 
   .welcome-section {
@@ -1339,12 +1393,19 @@ html {
   }
 }
 
+/* --- Very small (max 375px) --- */
 @media (max-width: 375px) {
   .hero {
-    min-height: calc(100vh - 60px);
-    margin-top: 60px;
-    background-size: auto 100%;
-    background-position: center center;
+    margin-top: 0;
+  }
+
+  .hero-buttons {
+    margin-top: 1.5rem;
+  }
+
+  .hero-content .btn {
+    font-size: 11px;
+    padding: 7px 16px;
   }
 
   .hero-content h1 {
