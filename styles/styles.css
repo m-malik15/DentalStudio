@@ -283,12 +283,7 @@ html {
   box-shadow: 0 12px 30px rgba(0, 169, 206, 0.25);
 }
 
-.welcome-text-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+
 
 .welcome-text p {
   margin-bottom: 0;
@@ -305,6 +300,22 @@ html {
   color: #2c3e50;
   line-height: 1.7;
 }
+
+.root-paragraph  {
+  margin-bottom: 0;
+  color: #444444;
+  line-height: 1.8;
+  font-size: 17px;
+  text-align: left;
+  font-weight: 400;
+}
+
+.welcomeroot-text p:first-of-type {
+  
+  color: #2c3e50;
+  line-height: 1.7;
+}
+
 
 .welcome-text::after {
   content: '';
@@ -333,7 +344,7 @@ html {
 
 .highlights-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   max-width: 1000px;
   margin: 0 auto;
